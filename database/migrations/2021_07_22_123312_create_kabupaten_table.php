@@ -14,7 +14,7 @@ class CreateKabupatenTable extends Migration
     public function up()
     {
         Schema::create('kabupaten', function (Blueprint $table) {
-            $table->char('code', 4)->unique()->index();;
+            $table->char('code', 4)->unique()->primary();;
             $table->char('provinsi_code', 2)->nullable()->index();
             $table->string('name')->index();
             $table->string('latitude')->nullable();

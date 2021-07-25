@@ -17,9 +17,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'no_telp',
+        'role_id',
+        'enable',
+        'last_login',
+        'social_id',
+        'social_type'
     ];
 
     /**
@@ -40,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function donor()
+    {
+        return $this->belongsTo(Donor::class, 'userable_id');
+    }
 }

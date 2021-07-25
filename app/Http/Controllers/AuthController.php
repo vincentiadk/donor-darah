@@ -35,7 +35,6 @@ class AuthController extends Controller
                                 'email' => $user->email,
                                 'name' => $user->name,
                                 'last_login' => $time,
-                                'permissions' => $user->role->permissions
                             ]);
                             $user->update([
                                 'last_login' => $time,

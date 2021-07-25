@@ -72,7 +72,7 @@ const Toast = Swal.mixin({
     toast: true,
     position: 'middle-end',
     showConfirmButton: false,
-    timer: 3000,
+    timer: 10000,
     timerProgressBar: true,
     onOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -101,9 +101,16 @@ function select2AutoSuggest(selector, endpoint, sourcepoint = '') {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: function(params) {
-                var query = {
-                    search: params.term,
-                    sourcepoint: $('#' + sourcepoint).val()
+                if(sourcepoint != '') {
+                    var query = {
+                        search: params.term,
+                        sourcepoint: $('#' + sourcepoint).val()
+                    }
+                } else {
+                    var query = {
+                        search: params.term,
+                        sourcepoint: ''
+                    }
                 }
                 return query;
             },

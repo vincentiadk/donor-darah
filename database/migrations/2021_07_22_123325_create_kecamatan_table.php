@@ -14,7 +14,7 @@ class CreateKecamatanTable extends Migration
     public function up()
     {
         Schema::create('kecamatan', function (Blueprint $table) {
-            $table->char('code', 7)->unique()->index();
+            $table->char('code', 7)->unique()->primary();
             $table->char('kabupaten_code', 4)->nullable()->index();
             $table->string('name')->index();
             $table->string('latitude')->nullable();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvinsiTable extends Migration
+class CreateReseptorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProvinsiTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinsi', function (Blueprint $table) {
-            $table->char('code', 2)->unique()->primary();
-            $table->string('name')->index();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+        Schema::create('reseptors', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('donor_id')->nullable()->constrained('donors');
+            $table->foreignId('created_by')->nullable()->constrained('users');
             $table->timestamps();
-            $table->softDeletes('deleted_at');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateProvinsiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provinsi');
+        Schema::dropIfExists('reseptors');
     }
 }

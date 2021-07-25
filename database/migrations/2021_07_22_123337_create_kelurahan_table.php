@@ -14,7 +14,7 @@ class CreateKelurahanTable extends Migration
     public function up()
     {
         Schema::create('kelurahan', function (Blueprint $table) {
-            $table->char('code', 10)->unique()->index();
+            $table->char('code', 10)->unique()->primary();
             $table->char('kecamatan_code', 7)->nullable()->index();
             $table->string('name')->index();
             $table->string('latitude')->nullable();
