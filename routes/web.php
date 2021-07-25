@@ -14,6 +14,10 @@ Route::middleware('auth.login')->group(function () {
         Route::get('profile', 'ProfileController@index');
         Route::post('profile/store', 'ProfileController@store');
 
+        Route::get('donor-history', 'DonorHistoryController@index');
+        Route::post('donor-history/datatable', 'DonorHistoryController@datatable');
+        Route::post('donor-history/store', 'DonorHistoryController@store');
+        
         Route::get('medical-history', 'MedicalHistoryController@index');
         Route::post('medical-history/store', 'MedicalHistoryController@store');
 

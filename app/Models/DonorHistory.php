@@ -16,12 +16,12 @@ class DonorHistory extends Model
         'reseptor_id',
     ];
 
-    protected function donor()
+    public function donor()
     {
         return $this->belongsTo(Donor::class, 'donor_id');
     }
 
-    protected function reseptor()
+    public function reseptor()
     {
         return $this->belongsTo(Donor::class, 'reseptor_id');
     }

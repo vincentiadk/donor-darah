@@ -14,12 +14,12 @@ class LocationPreference extends Model
         'kabupaten_code',
     ];
 
-    protected function donor()
+    public function donor()
     {
         return $this->belongsTo(Donor::class, 'donor_id');
     }
 
-    protected function location()
+    public function location()
     {
         return $this->belongsTo(Kabupaten::class, 'kabupaten_code');
     }

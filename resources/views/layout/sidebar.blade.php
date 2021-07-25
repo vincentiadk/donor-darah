@@ -1,10 +1,9 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar elevation-4 sidebar-light-danger">
       <!-- Brand Logo -->
       <a href="/" class="brand-link">
-          <span class="brand-text font-weight-light">Admin Panel</span>
+          <span class="brand-text font-weight-light">Darah ID</span>
       </a>
-
       <!-- Sidebar -->
       <div class="sidebar">
           <!-- Sidebar user (optional) -->

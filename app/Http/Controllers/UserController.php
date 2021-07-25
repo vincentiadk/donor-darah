@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        if((!in_array('user', json_decode(session('permissions')))) && (!session('role_id') == 1)) {
+        if(!session('role_id') == 1) {
             return abort(403);
         }
         $data = [
@@ -42,8 +42,7 @@ class UserController extends Controller
         $totalData = User::count();
 
         $filtered = User::where(function ($query) use ($search) {
-            $query->where('name', 'like', "%{$search}%")
-                ->orWhere('email', 'like', "%{$search}%");
+            $query->where('email', 'like', "%{$search}%");
         });
 
         $totalFiltered = $filtered->count();
@@ -66,8 +65,8 @@ class UserController extends Controller
                 }
                 $response['data'][] = [
                     $nomor,
-                    $val->name,
-                    $val->username,
+                    $val->donor->nama_ktp,
+                    $val->no_telp,
                     $val->email,
                     $val->role->name,
                     $aksi .
@@ -90,7 +89,7 @@ class UserController extends Controller
 
     public function view($id)
     {
-        if((!in_array('tambah-update-user', json_decode(session('permissions')))) && (!session('role_id') == 1)) {
+        if(!session('role_id') == 1) {
             return abort(403);
         }
         $data = [
@@ -133,15 +132,8 @@ class UserController extends Controller
         $id = request('id');
         $message = '';
         $validator = Validator::make(request()->all(), [
-            "name" => "required",
-            "username" => $id > 0 ? "required|without_spaces|min:6|unique:users,username," . $id : "required|without_spaces|min:6|unique:users,username",
             "email" => $id > 0 ? "required|email|unique:users,email," . $id : "required|email|unique:users,email",
         ], [
-            "name.required" => "Nama wajib di isi!",
-            "username.required" => "Username wajib di isi!",
-            "username.unique" => "Username telah ada!",
-            "username.without_spaces" => "Username tidak boleh menggunakan spasi",
-            "username.min" => "Username minimal 6 Karakter!",
             "email.required" => "Email wajib di isi!",
             "email.unique" => "Email Telah Terdaftar!",
             "email.email" => "Email tidak valid!",
@@ -156,8 +148,6 @@ class UserController extends Controller
                 if (request('type') == 'update') {
                     $user = User::findOrFail(request('id'));
                     $user->update([
-                        'name' => request('name'),
-                        'username' => request('username'),
                         'email' => request('email'),
                         'enable' => request('enable'),
                         'role_id' => request('role_id'),
@@ -171,7 +161,6 @@ class UserController extends Controller
                 if (request('type') == 'setting') {
                     $user = User::findOrFail(request('id'));
                     $user->update([
-                        'name' => request('name'),
                         'username' => request('username'),
                         'email' => request('email'),
                     ]);
@@ -207,8 +196,6 @@ class UserController extends Controller
                 }
             } else {
                 $user = User::create([
-                    'name' => request('name'),
-                    'username' => request('username'),
                     'email' => request('email'),
                     'enable' => request('enable'),
                     'role_id' => request('role_id'),
@@ -225,7 +212,7 @@ class UserController extends Controller
 
     public function enable()
     {
-        if((!in_array('enable-user', json_decode(session('permissions')))) && (!session('role_id') == 1)){
+        if(!session('role_id') == 1){
             return abort(403);
         }
         User::where('id', request('id'))->update(['enable' => 1]);
@@ -238,7 +225,7 @@ class UserController extends Controller
 
     public function disable()
     {
-        if((!in_array('disable-user', json_decode(session('permissions')))) && (!session('role_id') == 1)){
+        if(!session('role_id') == 1) {
             return abort(403);
         }
         User::where('id', request('id'))->update(['enable' => 0]);

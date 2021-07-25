@@ -46,8 +46,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function donor()
+    public function donor()
     {
         return $this->belongsTo(Donor::class, 'userable_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 }

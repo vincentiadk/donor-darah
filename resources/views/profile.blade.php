@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-row card-danger card-tabs col-md-4">
+                    <div class="card card-row card-warning card-tabs col-md-4">
                         <div class="card-header">
                             <h3 class="card-title">Kontak</h3>
                             <div class="card-tools">

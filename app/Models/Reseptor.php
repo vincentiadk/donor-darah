@@ -14,7 +14,7 @@ class Reseptor extends Model
         'create_by'
     ];
 
-    protected function detail()
+    public function detail()
     {
         return $this->belongsTo(Donor::class, 'donor_id');
     }
