@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Helper\Helper;
 use App\Models\Donor;
 use App\Models\Reseptor;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ReseptorController extends Controller
 {
@@ -31,27 +30,27 @@ class ReseptorController extends Controller
         ];
         return view('reseptor-detail', ['data' => $data]);
     }
-   
+
     public function donorPotential($id)
     {
-        $reseptor =  Donor::findOrFail($id);
-        if($reseptor->jenis_donor == 1) { // biasa
+        $reseptor = Donor::findOrFail($id);
+        if ($reseptor->jenis_donor == 1) { // biasa
             $donors = Donor::where('gol_darah', $reseptor->gol_darah)
-            ->where('rhesus', $reseptor->rhesus)
-            ->whereHas('location_preference', function($query) use($reseptor) {
-                $query->where('kabupaten_code', $reseptor->kabupaten_code);
-            })
-            ->whereNot('id', $reseptor->id)
-            ->get();
+                ->where('rhesus', $reseptor->rhesus)
+                ->whereHas('location_preference', function ($query) use ($reseptor) {
+                    $query->where('kabupaten_code', $reseptor->kabupaten_code);
+                })
+                ->whereNot('id', $reseptor->id)
+                ->get();
         } else {
             $donors = Donor::where('gol_darah', $reseptor->gol_darah)
-            ->where('rhesus', $reseptor->rhesus)
-            ->where('id', '!=', $reseptor->id)
-            ->whereHas('location_preference', function($query) use($reseptor) {
-                $query->where('kabupaten_code', $reseptor->kabupaten_code);
-            })
-            ->where('covid', 1)
-            ->get()->filter(function($item) {
+                ->where('rhesus', $reseptor->rhesus)
+                ->where('id', '!=', $reseptor->id)
+                ->whereHas('location_preference', function ($query) use ($reseptor) {
+                    $query->where('kabupaten_code', $reseptor->kabupaten_code);
+                })
+                ->where('covid', 1)
+                ->get()->filter(function ($item) {
                 return $item->tglsembuhcovid > 21;
                 return $item->tglmelahirkangugur > 365;
             });
@@ -72,8 +71,11 @@ class ReseptorController extends Controller
     }
     public function store()
     {
-        $reseptor = Donor::findOrFail(session('id'));
-        
+        if (request('donor_id') > 0) {
+            $reseptor = Donor::findOrFail(session('id'));
+        } else {
+            $reseptor = new Donor();
+        }
         $message = '';
         $validator = Validator::make(request()->all(), [
             "gol_darah" => "required",
@@ -97,7 +99,9 @@ class ReseptorController extends Controller
                 'error' => $validator->errors(),
             ];
         } else {
-            $reseptor->update([
+            $donor = Donor::updateOrCreate([
+                'id' => $reseptor->id,
+            ], [
                 'nama_ktp' => request('nama_ktp'),
                 'nama_panggilan' => request('nama_panggilan'),
                 'no_ktp' => request('no_ktp'),
@@ -109,14 +113,15 @@ class ReseptorController extends Controller
                 'kecamatan_code' => request('kecamatan_code'),
                 'gol_darah' => request('gol_darah'),
                 'rhesus' => request('rhesus'),
-                'peruntukan'   => request('peruntukan'),
+                'peruntukan' => request('peruntukan'),
                 'jenis_donor' => request('jenis_donor'),
                 'instansi' => request('instansi'),
             ]);
-            $reseptor = Reseptor::firstOrCreate(
-                ['donor_id' =>  $reseptor->id], 
-                ['created_by' => session('id')]
-            );
+            Reseptor::firstOrCreate([
+                'donor_id' => $donor->id,
+            ], [
+                'created_by' => session('id'),
+            ]);
             $response = [
                 'status' => 200,
                 'message' => 'Berhasil menyimpan',

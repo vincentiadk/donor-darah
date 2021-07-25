@@ -35,7 +35,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/preferences" class="nav-link">
+                      <a href="/admin/preference" class="nav-link">
                           <i class="nav-icon far fa-image"></i>
                           <p>
                               Kesediaan Mendonorkan Darah
@@ -43,7 +43,23 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/donor0history" class="nav-link">
+                      <a href="/admin/reseptor" class="nav-link">
+                          <i class="nav-icon far fa-image"></i>
+                          <p>
+                              Reseptor
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/admin/need-blood" class="nav-link">
+                          <i class="nav-icon far fa-image"></i>
+                          <p>
+                              Membutuhkan Darah
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/admin/donor-history" class="nav-link">
                           <i class="nav-icon far fa-image"></i>
                           <p>
                               Riwayat Donor Darah

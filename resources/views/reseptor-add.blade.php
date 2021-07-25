@@ -12,13 +12,11 @@
                 </div>
                 <div class="row">
                     <!-- left column -->
-                    <!--<div class="col-md-6 center">-->
-
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-4">
+                    <div class="card card-row card-primary card-tabs col-md-6">
                         <div class="card-header">
-                            <h3 class="card-title">Data Diri</h3>
+                            <h3 class="card-title">Data Reseptor</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                     data-toggle="tooltip" title="Collapse">
@@ -99,6 +97,21 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-group clearfix">
+                                <label>Jenis Donor </label>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
+                                    <label for="jenis_donor">
+                                        Biasa
+                                    </label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="jenis_donor2" name="jenis_donor" value="2">
+                                    <label for="jenis_donor2">
+                                        Plasma Kovalen
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label>Peruntukan</label>
                                 <input name="peruntukan" type="text" id="peruntukan" class="form-control">
@@ -118,28 +131,16 @@
                             <div class="form-group">
                                 <label>Kab/Kota</label>
                                 <select name="kabupaten_code" class="form-control" id="kabupaten_code">
-                                    @if($data['donor']->kabupaten)
-                                    <option value="{{ $data['donor']->kabupaten->code }}" selected>
-                                        {{$data['donor']->kabupaten->name}}</option>
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Kecamatan</label>
                                 <select name="kecamatan_code" class="form-control" id="kecamatan_code">
-                                    @if($data['donor']->kecamatan)
-                                    <option value="{{ $data['donor']->kecamatan->code }}" selected>
-                                        {{$data['donor']->kecamatan->name}}</option>
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Kelurahan</label>
                                 <select name="kelurahan_code" class="form-control" id="kelurahan_code">
-                                    @if($data['donor']->kelurahan)
-                                    <option value="{{ $data['donor']->kelurahan->code }}" selected>
-                                        {{$data['donor']->kelurahan->name}}</option>
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
