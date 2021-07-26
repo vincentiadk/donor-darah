@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-class CsvtoArray
+class CsvtoArray extends Seeder
 {
     public function csv_to_array($filename, $header)
     {
