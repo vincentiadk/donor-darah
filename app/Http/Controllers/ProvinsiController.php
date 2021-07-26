@@ -25,7 +25,6 @@ class ProvinsiController extends Controller
     public function datatable(Request $request)
     {
         $whereLike = [
-            'id',
             'code',
             'name',
             'latitude',

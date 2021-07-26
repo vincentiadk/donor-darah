@@ -24,9 +24,8 @@ class KelurahanController extends Controller
     public function datatable(Request $request)
     {
         $whereLike = [
-            'id',
             'code',
-            'kecamatan_id',
+            'kecamatan_code',
             'name',
             'latitude',
             'longitude',

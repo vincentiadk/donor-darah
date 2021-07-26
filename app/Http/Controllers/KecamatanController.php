@@ -24,9 +24,8 @@ class KecamatanController extends Controller
     public function datatable(Request $request)
     {
         $whereLike = [
-            'id',
             'code',
-            'kabupaten_id',
+            'kabupaten_code',
             'name',
             'latitude',
             'longitude',
