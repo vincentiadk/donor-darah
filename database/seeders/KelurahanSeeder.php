@@ -12,7 +12,7 @@ class KelurahanSeeder extends Seeder
     public function run()
     {
         $now = Carbon::now();
-        $csv = new CsvtoArray();
+        $csv = new CsvToArray();
         $resourceFiles = File::allFiles(public_path('website/csv/villages'));
         foreach ($resourceFiles as $file) {
             $header = ['code', 'kecamatan_code', 'name', 'latitude', 'longitude'];

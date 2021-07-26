@@ -11,7 +11,7 @@ class ProvinsiSeeder extends Seeder
     public function run()
     {
         $now = Carbon::now();
-        $csv = new CsvtoArray();
+        $csv = new CsvToArray();
         $file = public_path('website/csv/provinces.csv');
         $header = ['code', 'name', 'latitude', 'longitude'];
         $data = $csv->csv_to_array($file, $header);

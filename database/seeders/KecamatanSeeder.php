@@ -11,7 +11,7 @@ class KecamatanSeeder extends Seeder
     public function run()
     {
         $now = Carbon::now();
-        $csv = new CsvtoArray();
+        $csv = new CsvToArray();
         $file = public_path('website/csv/districts.csv');
         $header = ['code', 'kabupaten_code', 'name', 'latitude', 'longitude'];
         $data = $csv->csv_to_array($file, $header);
