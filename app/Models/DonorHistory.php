@@ -14,6 +14,7 @@ class DonorHistory extends Model
         'tanggal_donor',
         'instansi',
         'reseptor_id',
+        'jenis_donor'
     ];
 
     public function donor()
@@ -24,5 +25,16 @@ class DonorHistory extends Model
     public function reseptor()
     {
         return $this->belongsTo(Donor::class, 'reseptor_id');
+    }
+
+    public function jenis_donor()
+    {
+        if($this->jenis_donor == '1') {
+            return "Biasa";
+        } else if($this->jenis_donor == '2') {
+            return "Plasma Kovalen";
+        } else {
+            return "";
+        }
     }
 }
