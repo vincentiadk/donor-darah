@@ -24,7 +24,7 @@
             <td>{{ $val->provinsi ? $val->provinsi->name : "" }}</td>
             <td>{{ $val->kabupaten ? $val->kabupaten->name : "" }}</td>
             <td>{{ $val->kecamatan ? $val->kecamatan->name : "" }}</td>
-            <td>{{ $val->wa != "" ? "<a href='https://api.whatsapp.com/send?phone=".$val->whatsapp."text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah.>WA</a>'": "" }}
+            <td>{{ $val->whatsapp != "" ? "<a href='https://api.whatsapp.com/send?phone=".$val->whatsapp."text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah.>WA</a>'": "" }}
             </td>
         </tr>
         @endforeach
