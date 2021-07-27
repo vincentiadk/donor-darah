@@ -70,7 +70,7 @@ class UserController extends Controller
                     $val->email,
                     $val->role->name,
                     $aksi .
-                    "<a href='" . url("admin/user/view/" . $val->id) . "' class='btn btn-success'>Lihat</a>",
+                    '<a href="#" onclick="goToPage(\'admin\/user\/show\/'. $val->id .'\')" class="btn btn-success">Lihat</a>',
                 ];
                 $nomor++;
             }
@@ -87,7 +87,7 @@ class UserController extends Controller
         return response()->json($response);
     }
 
-    public function view($id)
+    public function show($id)
     {
         if(!session('role_id') == 1) {
             return abort(403);

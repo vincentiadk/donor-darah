@@ -52,7 +52,7 @@ Route::middleware('auth.login')->group(function () {
         Route::get('user', 'UserController@index');
         Route::post('user/datatable', 'UserController@datatable');
         Route::post('user/store', 'UserController@store');
-        Route::get('user/view/{id}', 'UserController@view');
+        Route::get('user/show/{id}', 'UserController@show');
         Route::get('user/setting', 'UserController@setting');
         Route::post('user/enable', 'UserController@enable');
         Route::post('user/disable', 'UserController@disable');
