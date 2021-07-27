@@ -15,6 +15,7 @@ Route::middleware('auth.login')->group(function () {
         Route::post('profile/store', 'ProfileController@store');
 
         Route::get('donor-history', 'DonorHistoryController@index');
+        Route::get('donor-history/add', 'DonorHistoryController@add');
         Route::post('donor-history/datatable', 'DonorHistoryController@datatable');
         Route::post('donor-history/store', 'DonorHistoryController@store');
         

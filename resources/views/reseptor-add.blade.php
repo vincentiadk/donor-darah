@@ -220,7 +220,7 @@
                         icon: 'success',
                         title: response.message
                     });
-                    window.open = '{{ url("admin/reseptor")}}';
+                    goToPage('{{ url("admin/reseptor")}}');
                 } else if (response.status == 422) {
                     $('#validasi_element').show();
                     Toast.fire({

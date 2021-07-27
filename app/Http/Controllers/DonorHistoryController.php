@@ -20,6 +20,16 @@ class DonorHistoryController extends Controller
         return view('donorhistory', ['data' => $data]);
     }
 
+    public function add()
+    {
+        $data = [
+            'title' => 'Tambah Riwayat Donor Darah',
+            'content' => 'donorhistory-add',
+            'logs' => Helper::getLogs(session('id')),
+        ];
+        return view('donorhistory-add', ['data' => $data]);
+    }
+
     public function datatable(Request $request)
     {
         $start = $request->input('start');
@@ -56,6 +66,36 @@ class DonorHistoryController extends Controller
         $response['recordsFiltered'] = 0;
         if ($totalFiltered != false) {
             $response['recordsFiltered'] = $totalFiltered;
+        }
+        return response()->json($response);
+    }
+
+    public function store()
+    {
+        $validator = Validator::make(request()->all(), [
+            "tanggal_donor" => "required",
+            "instansi"  => "required"
+        ], [
+            "tanggal_donor.required" => "Tanggal donor darah wajib diisi!",
+            "instansi.required" => "Instansi/RS tempat donor darah wajib diisi!",
+        ]);
+        if ($validator->fails()) {
+            $response = [
+                'status' => 422,
+                'error' => $validator->errors(),
+            ];
+        } else {
+            DonorHistory::create([
+                'donor_id' => request('donor_id'),
+                'tanggal_donor'=> request('tanggal_donor'),
+                'instansi' => request('instansi'),
+                'reseptor_id'=> request('reseptor_id'),
+                'jenis_donor' => request('jenis_donor')
+            ]);
+            $response = [
+                'status' => 200,
+                'message' => 'Berhasil menyimpan',
+            ];
         }
         return response()->json($response);
     }

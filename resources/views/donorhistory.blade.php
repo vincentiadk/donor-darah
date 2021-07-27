@@ -4,8 +4,8 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row parent">
-                <div class="col-12">
-                    <div class="card">
+                    <div class="card col-md-12">
+                    
                         <div class="card-header">
                             <h3 class="card-title"> {{ $data['title'] }} </h3>
                             <div class="card-tools">
@@ -15,7 +15,9 @@
                                 <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                                     <i class="fas fa-times"></i>
                                 </button>
+                                <button onclick="goToPage('admin/donor-history/add')" class="btn btn-success float-right"> Tambah Riwayat</button>
                             </div>
+                            
                         </div>
                         <div class="card-body">
                             <table class="table table-striped table-bordered nowrap" id="datatable_serverside" style="width:100%">
@@ -31,7 +33,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         <!-- /.card -->
