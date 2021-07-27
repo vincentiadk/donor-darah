@@ -18,7 +18,7 @@ class ProfileController extends Controller
             'donor' => $donor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('profile', ['data' => $data]);
     }
 
     public function store()

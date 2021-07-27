@@ -19,7 +19,7 @@ class ProvinsiController extends Controller
             'content' => 'provinsi',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('provinsi', ['data' => $data]);
     }
 
     public function datatable(Request $request)

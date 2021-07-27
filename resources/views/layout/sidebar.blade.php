@@ -18,7 +18,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="/" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/profile')">
                           <i class="nav-icon far fa-address-card"></i>
                           <p>
                               Data Diri
@@ -26,7 +26,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/medical-history" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">
                           <i class="nav-icon fas fa-notes-medical"></i>
                           <p>
                               Riwayat Medis
@@ -34,7 +34,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/preference" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/preference')">
                           <i class="nav-icon fas fa-hand-holding-medical"></i>
                           <p>
                               Kesediaan Mendonorkan Darah
@@ -42,7 +42,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/reseptor" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/reseptor')">
                           <i class="nav-icon fas fa-first-aid"></i>
                           <p>
                               Reseptor
@@ -50,7 +50,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/need-blood" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/need-blood')">
                           <i class="nav-icon fas fa-hospital-user"></i>
                           <p>
                               Membutuhkan Darah
@@ -58,7 +58,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="/admin/donor-history" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">
                           <i class="nav-icon fas fa-history"></i>
                           <p>
                               Riwayat Donor Darah
@@ -68,7 +68,7 @@
                   <li class="nav-header">PENGATURAN</li>
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="/admin/user" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/user')">
                           <i class="far fa-user nav-icon"></i>
                           <p>User Management</p>
                       </a>
@@ -76,14 +76,14 @@
                   @endif
                  
                   <li class="nav-item">
-                      <a href="/admin/log" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/log')">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Log Aktifitas</p>
                       </a>
                   </li>
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="/admin/provinsi" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/provinsi')">
                           <i class="far fa-map nav-icon"></i>
                           <p>Provinsi</p>
                       </a>
@@ -91,7 +91,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="/admin/kabupaten" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/kabupaten')"> 
                           <i class="far fa-map nav-icon"></i>
                           <p>Kabupaten / Kota</p>
                       </a>
@@ -99,7 +99,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="/admin/kecamatan" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/kecamatan')">
                           <i class="far fa-map nav-icon"></i>
                           <p>Kecamatan</p>
                       </a>
@@ -107,7 +107,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="/admin/kelurahan" class="nav-link">
+                      <a href="#" class="nav-link" onclick="goToPage('admin/kelurahan')">
                           <i class="far fa-map nav-icon"></i>
                           <p>Kelurahan</p>
                       </a>

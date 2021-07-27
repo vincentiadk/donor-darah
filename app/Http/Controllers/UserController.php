@@ -20,7 +20,7 @@ class UserController extends Controller
             'content' => 'user',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('user', ['data' => $data]);
     }
 
     public function datatable(Request $request)
@@ -121,7 +121,7 @@ class UserController extends Controller
             'user' => $user,
             'type' => 'setting',
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('user-form', ['data' => $data]);
     }
 
     public function store()

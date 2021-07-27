@@ -9,39 +9,22 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/dashboard" class="nav-link">Dashboard</a>
-                </li>
-                <!--
-                @if(session('role_id') == 1)
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/report" class="nav-link">Reporting</a>
+                    <a href="#" class="nav-link" onclick="goToPage('admin/profile')">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/performance" class="nav-link">Kinerja User</a>
+                    <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">Riwayat Medis</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/import" class="nav-link">Import DB</a>
-                </li>
-                @endif
-                @if(session('role_id') == 2)
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/upload" class="nav-link">Upload</a>
+                    <a href="#" class="nav-link" onclick="goToPage('admin/preference')">Kesediaan Mendonorkan Darah</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/map" class="nav-link">Map Simpan</a>
+                    <a href="#" class="nav-link" onclick="goToPage('admin/reseptor')">Reseptor</a>
                 </li>
-                @endif
-
-                @if(session('role_id') == 3)
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/nasabah/indexing" class="nav-link">Indexing</a>
-                </li>
-                @endif
-                @if(session('role_id') == 4)
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/admin/nasabah/qc" class="nav-link">QC</a>
-                </li>
-                @endif-->
+                    <a href="#" class="nav-link" onclick="goToPage('admin/need-blood')">Membutuhkan Darah</a>
+                </li><li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">Riwayat Donor</a>
+                </li>               
             </ul>
 
             <!-- Right navbar links -->
@@ -60,7 +43,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         @endforeach
-                        <a href="/admin/log" class="dropdown-item dropdown-footer">Lihat Semua Log</a>
+                        <a href="#" class="dropdown-item dropdown-footer" onclick="goToPage('admin/log')">Lihat Semua Log</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -83,7 +66,7 @@
                             Terakhir Login 
                             <span class="float-right text-muted text-sm">{{ session('last_login') }}</span>
                         </a>
-                        <a href="/admin/user/setting" class="btn btn-secondary" style="width:100%"><i class="fas fa-cog"> </i>  Pengaturan 
+                        <a href="#" class="btn btn-secondary" style="width:100%" onclick="goToPage('admin/user/setting')"><i class="fas fa-cog"> </i>  Pengaturan 
                         </a>
                         <a href="/logout" class="btn btn-danger" style="width:100%"> <i class="fas fa-sign-out-alt"> </i>Logout</a>
                     </div>

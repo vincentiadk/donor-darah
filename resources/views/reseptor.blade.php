@@ -17,7 +17,7 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                                <a href="{{ url('admin/reseptor/add') }}" class="btn btn-primary btn-block"><b>Tambah
+                                <a href="#" class="btn btn-primary btn-block" onclick="goToPage('admin/reseptor/add')"><b>Tambah
                                         Reseptor</b></a>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ class KabupatenController extends Controller
             'content' => 'kabupaten',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('kabupaten', ['data' => $data]);
     }
 
     public function datatable(Request $request)

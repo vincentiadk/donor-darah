@@ -19,7 +19,7 @@ class ReseptorController extends Controller
             'reseptors' => $reseptor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('reseptor', ['data' => $data]);
     }
 
     public function view($id)
@@ -67,7 +67,7 @@ class ReseptorController extends Controller
             'content' => 'reseptor-add',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('reseptor-add', ['data' => $data]);
     }
     public function store()
     {

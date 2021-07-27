@@ -2,78 +2,90 @@
 <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
-        <form action="/admin/user/store" method="post" enctype="multipart/form-data" id="form_data">
-            {{ csrf_field() }}
-            <!-- Default box -->
-            <div class="card col-8">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $data['title'] }}</h3>
-                </div>
-                <div class="card-body">
-                    @php
-                    $id = 0;
-                    if($data['user']->id != '') {
-                    $id = $data['user']->id;
-                    }
-                    @endphp
-                    <input type="hidden" value="{{ $id }}" name="id" id="id_user">
-                    <input type="hidden" value="{{ $data['type'] }}" name="type">
-                    <div class="alert alert-danger" id="validasi_element" style="display:none;">
-                        <ul id="validasi_content"></ul>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" value="{{ $data['user']->email }}" name="email">
-                    </div>
-                    @if($data['type'] != 'setting')
-                        @if($data['user']->id == 1)
-                        <div class="form-group">
-                            <label>Role</label>
-                            <select class="form-control" name="role_id" readonly>
-                                <option value="1" selected> Super Admin </option>
-                            </select>
+        <div class="container-fluid">
+            <div class="row parent">
+                <div class="col-8">
+                    <form action="/admin/user/store" method="post" enctype="multipart/form-data" id="form_data">
+                        {{ csrf_field() }}
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">{{ $data['title'] }}</h3>
+                            </div>
+                            <div class="card-body">
+                                @php
+                                $id = 0;
+                                if($data['user']->id != '') {
+                                $id = $data['user']->id;
+                                }
+                                @endphp
+                                <input type="hidden" value="{{ $id }}" name="id" id="id_user">
+                                <input type="hidden" value="{{ $data['type'] }}" name="type">
+                                <div class="alert alert-danger" id="validasi_element" style="display:none;">
+                                    <ul id="validasi_content"></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" value="{{ $data['user']->email }}"
+                                        name="email">
+                                </div>
+                                @if($data['type'] != 'setting')
+                                @if($data['user']->id == 1)
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <select class="form-control" name="role_id" readonly>
+                                        <option value="1" selected> Super Admin </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" value="1" name="enable">
+                                @else
+                                <div class="form-group">
+                                    <select class="form-control" name="role_id">
+                                        @foreach(App\Models\Role::all() as $role)
+                                        <option value="{{ $role->id }}" @if($data['user']->role_id == $role->id)
+                                            selected
+                                            @endif>{{ $role->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Enable / Disable</label>
+                                    <select class="form-control" name="enable">
+                                        <option value="1" @if($data['user']->enable == 1) selected @endif>Enable
+                                        </option>
+                                        <option value="0" @if($data['user']->enable == 0) selected @endif>Disable
+                                        </option>
+                                    </select>
+                                </div>
+                                @endif
+                                @endif
+                                @if($data['type'] == 'setting')
+                                <div class="form-group">
+                                    <label>Password Lama *)</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password Baru *)</label>
+                                    <input type="password" class="form-control" name="password_new" id="password_new">
+                                </div>
+                                <div class="form-group">
+                                    <label>Konfirmasi Password Baru *)</label>
+                                    <input type="password" class="form-control" name="password_confirm"
+                                        id="password_confirm">
+                                </div>
+                                *) Diisi hanya saat Anda ingin mengganti password
+                                @endif
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block col-4"
+                                        onclick="simpan()">Simpan</button>
+                                </div>
+                            </div>
                         </div>
-                        <input type="hidden" value="1" name="enable">
-                        @else
-                        <div class="form-group">
-                            <select class="form-control" name="role_id">
-                                @foreach(App\Models\Role::all() as $role)
-                                <option value="{{ $role->id }}" @if($data['user']->role_id == $role->id) selected
-                                    @endif>{{ $role->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Enable / Disable</label>
-                            <select class="form-control" name="enable">
-                                <option value="1" @if($data['user']->enable == 1) selected @endif>Enable</option>
-                                <option value="0" @if($data['user']->enable == 0) selected @endif>Disable</option>
-                            </select>
-                        </div>
-                        @endif
-                    @endif
-                    @if($data['type'] == 'setting')
-                    <div class="form-group">
-                        <label>Password Lama *)</label>
-                        <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label>Password Baru *)</label>
-                        <input type="password" class="form-control" name="password_new" id="password_new">
-                    </div>
-                    <div class="form-group">
-                        <label>Konfirmasi Password Baru *)</label>
-                        <input type="password" class="form-control" name="password_confirm" id="password_confirm">
-                    </div>
-                    *) Diisi hanya saat Anda ingin mengganti password
-                    @endif
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block col-4" onclick="simpan()">Simpan</button>
-                    </div>
+                    </form>
+                    <!-- /.card -->
                 </div>
             </div>
-        </form>
-        <!-- /.card -->
+        </div>
     </section>
 </div>
 <script>

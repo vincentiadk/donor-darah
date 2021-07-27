@@ -15,7 +15,7 @@ class LogController extends Controller
             'content' => 'log',
             'logs'  => Helper::getLogs(session('id'))
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('log', ['data' => $data]);
     }
 
     public function datatable(Request $request)

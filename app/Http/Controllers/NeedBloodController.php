@@ -15,7 +15,7 @@ class NeedBloodController extends Controller
             'content' => 'needblood',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('needblood', ['data' => $data]);
     }
 
     public function datatable(Request $request)

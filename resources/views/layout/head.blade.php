@@ -53,7 +53,8 @@
 </head>
 <style>
 .content-wrapper {
-    height: 100%
+    height: 100%;
+    background-image: url('https://darah.id/sitepad-data/uploads//2021/07/home-header01.jpg');
 }
 
 .parent {
@@ -62,10 +63,17 @@
     align-items: center;
     justify-content: center;
 }
-
+.card {
+    background-color: rgba(255,255,255,0.85)
+}
 </style>
 <script>
-
+function goToPage(page) {
+    event.preventDefault();
+    loadingOpen('#myContent');
+    $("#myContent").load("{{url('')}}" + "/" + page);
+    loadingClose('#myContent');
+}
 bsCustomFileInput.init();
 
 function loadingOpen(selector) {

@@ -20,7 +20,7 @@ class MedicalHistoryController extends Controller
             'donor' => $user->donor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('medicalhistory', ['data' => $data]);
     }
 
     public function store()

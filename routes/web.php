@@ -7,10 +7,10 @@ Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
 Route::middleware('auth.login')->group(function () {
-    Route::get('/', 'ProfileController@index');
+    Route::get('/', 'DashboardController@index');
 
     Route::prefix('admin')->group(function () {
-        Route::get('dashboard', 'ProfileController@index');
+        Route::get('dashboard', 'DashboardController@index');
         Route::get('profile', 'ProfileController@index');
         Route::post('profile/store', 'ProfileController@store');
 

@@ -17,7 +17,7 @@ class DonorHistoryController extends Controller
             'content' => 'donorhistory',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        return view('donorhistory', ['data' => $data]);
     }
 
     public function datatable(Request $request)
