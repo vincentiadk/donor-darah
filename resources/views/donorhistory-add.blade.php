@@ -11,7 +11,7 @@
                     </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <input name="donor_id" type="hidden" value="{{ sesion('id') }}">
+                    <input name="donor_id" type="hidden" value="{{ session('id') }}">
                     <div class="card card-row card-primary card-tabs col-md-6">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Riwayat Donor Darah</h3>
