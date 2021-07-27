@@ -72,7 +72,7 @@ class ReseptorController extends Controller
     public function store()
     {
         if (request('donor_id') > 0) {
-            $reseptor = Donor::findOrFail(session('id'));
+            $reseptor = Donor::findOrFail(request('donor_id'));
         } else {
             $reseptor = new Donor();
         }
