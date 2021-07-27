@@ -12,7 +12,7 @@
                     <!-- left column -->
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-6">
+                    <div class="card card-row card-primary card-tabs col-md-8">
                         <div class="card-header">
                             <h3 class="card-title">Data Reseptor</h3>
                             <div class="card-tools">
@@ -66,7 +66,7 @@
 
                         </div>
                     </div>
-                    <div class="card card-row card-primary card-tabs col-md-6">
+                    <div class="card card-row card-primary card-tabs col-md-8">
                         <div class="card-header">
                             <h3 class="card-title">Data Keperluan Darah</h3>
                             <div class="card-tools">
@@ -184,7 +184,9 @@
                             </div>
                         </div>
                     </div>
-                    <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
+                    <div class="col-md-8">
+                        <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
+                    </div>
                 </div>
             </div>
         </section>

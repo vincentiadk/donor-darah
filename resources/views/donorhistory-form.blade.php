@@ -13,7 +13,7 @@
                     <!-- Default box -->
                     <input name="donor_id" type="hidden" value="{{ session('id') }}">
                     <input name="id" type="hidden" value="{{ $data['donorhistory']->id }}">
-                    <div class="card card-row card-primary card-tabs col-md-12">
+                    <div class="card card-row card-primary card-tabs col-md-8">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Riwayat Donor Darah</h3>
                             <div class="card-tools">
