@@ -82,7 +82,7 @@ class ReseptorController extends Controller
             "rhesus" => "required",
             "jenis_donor" => "required",
             "kabupaten_code" => "required",
-            "province_code" => "required",
+            "provinsi_code" => "required",
         ], [
             "nama_ktp.required" => "Nama sesuai KTP wajib di isi!",
             "no_ktp.required" => "Nomor KTP wajib di isi!",
@@ -90,7 +90,7 @@ class ReseptorController extends Controller
             "gol_darah.required" => "Golongan darah wajib dipilih!",
             "rhesus.required" => "Rhesus wajib dipilih!",
             "jenis_donor.required" => "Jenis donor darah wajib dipilih!",
-            "province_code.required" => "Provinsi reseptor wajib dipilih!",
+            "provinsi_code.required" => "Provinsi reseptor wajib dipilih!",
             "kabupaten_code.required" => "Kabupatan/Kota reseptor wajib dipilih!",
         ]);
         if ($validator->fails()) {
