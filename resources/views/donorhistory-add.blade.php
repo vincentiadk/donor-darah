@@ -51,9 +51,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
                         </div>
                     </div>
-                    <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
+                    
                 </div>
             </div>
         </section>

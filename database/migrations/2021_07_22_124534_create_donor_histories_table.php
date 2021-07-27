@@ -19,7 +19,7 @@ class CreateDonorHistoriesTable extends Migration
             $table->string('instansi');
             $table->char('jenis_donor', 1)->nullable();
             $table->foreignId('donor_id')->constrained('donors');
-            $table->foreignId('reseptor_id')->constrained('donors')->nullable();
+            $table->foreignId('reseptor_id')->nullable()->constrained('donors');
             $table->timestamps();
         });
     }
