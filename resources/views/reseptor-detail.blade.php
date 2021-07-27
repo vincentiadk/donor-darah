@@ -10,14 +10,16 @@
 <div class="form-group clearfix">
     <label>Jenis Kelamin </label>
     <div class="icheck-primary d-inline">
-        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l" @if(strtolower($data['donor']->jenis_kelamin) == 'l')
+        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l"
+            @if(strtolower($data['donor']->jenis_kelamin) == 'l')
         checked @endif>
         <label for="jenis_kelamin">
             Laki-laki
         </label>
     </div>
     <div class="icheck-primary d-inline">
-        <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p" @if(strtolower($data['donor']->jenis_kelamin) == 'p')
+        <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p"
+            @if(strtolower($data['donor']->jenis_kelamin) == 'p')
         checked @endif>
         <label for="jenis_kelamin2">
             Perempuan
@@ -82,6 +84,23 @@
 <div class="form-group">
     <label>Peruntukan</label>
     <input name="peruntukan" type="text" id="peruntukan" class="form-control" value="{{ $data['donor']->peruntukan }}">
+</div>
+<div class="form-group clearfix row">
+    <label class="col-lg-3 text-right">Jenis Donor </label>
+    <div class="col-lg-9">
+        <div class="icheck-primary d-inline">
+            <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
+            <label for="jenis_donor">
+                Biasa
+            </label>
+        </div>
+        <div class="icheck-primary d-inline">
+            <input type="radio" id="jenis_donor2" name="jenis_donor" value="2">
+            <label for="jenis_donor2">
+                Plasma Kovalen
+            </label>
+        </div>
+    </div>
 </div>
 <div class="form-group">
     <label>Instansi</label>
