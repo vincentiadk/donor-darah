@@ -12,7 +12,7 @@
                     </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-4">
+                    <div class="card card-row card-primary card-tabs col-md-12">
                         <div class="card-header">
                             <h3 class="card-title">Darah</h3>
                             <div class="card-tools">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-row card-secondary card-tabs col-md-4">
+                    <div class="card card-row card-secondary card-tabs col-md-12">
                         <div class="card-header">
                             <h3 class="card-title">Medis</h3>
                             <div class="card-tools">
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-row card-danger card-tabs col-md-4">
+                    <div class="card card-row card-danger card-tabs col-md-12">
                         <div class="card-header">
                             <h3 class="card-title">Covid - 19</h3>
                             <div class="card-tools">

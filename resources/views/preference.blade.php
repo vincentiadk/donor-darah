@@ -4,14 +4,12 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="row parent">
+                <div class="col-md-12">
                         <div class="alert alert-danger" id="validasi_element" style="display:none;">
                             <ul id="validasi_content"></ul>
                         </div>
                     </div>
-                </div>
-                <div class="row parent">
                     <!-- left column -->
                     {{ csrf_field() }}
                     <!-- Default box -->

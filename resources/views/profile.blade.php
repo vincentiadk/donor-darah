@@ -12,7 +12,7 @@
                     </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-4 ">
+                    <div class="card card-row card-primary card-tabs col-md-12 ">
                         <div class="card-header">
                             <h3 class="card-title">Data Diri</h3>
                             <div class="card-tools">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-row card-warning card-tabs col-md-4 ">
+                    <div class="card card-row card-warning card-tabs col-md-12 ">
                         <div class="card-header">
                             <h3 class="card-title">Kontak</h3>
                             <div class="card-tools">
@@ -90,7 +90,7 @@
 
                         </div>
                     </div>
-                    <div class="card card-row card-secondary card-tabs col-md-4 ">
+                    <div class="card card-row card-secondary card-tabs col-md-12 ">
                         <div class="card-header">
                             <h3 class="card-title">Domisili</h3>
                             <div class="card-tools">
