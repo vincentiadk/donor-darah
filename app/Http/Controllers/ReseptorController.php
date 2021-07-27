@@ -44,7 +44,7 @@ class ReseptorController extends Controller
                 ->whereHas('location_preference', function ($query) use ($reseptor) {
                     $query->where('kabupaten_code', $reseptor->kabupaten_code);
                 })
-                ->whereNot('id', $reseptor->id)
+                ->where('id', '!=', $reseptor->id)
                 ->get();
         } else {
             $donors = Donor::where('gol_darah', $reseptor->gol_darah)
