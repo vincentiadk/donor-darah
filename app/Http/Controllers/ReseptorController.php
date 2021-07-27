@@ -12,7 +12,11 @@ class ReseptorController extends Controller
 {
     public function index()
     {
-        $reseptor = Reseptor::where('created_by', session('id'))->get();
+        if(session('id') != 1) {
+            $reseptor = Reseptor::where('created_by', session('id'))->get();
+        } else {
+            $reseptor = Reseptor::all();
+        }
         $data = [
             'title' => 'Reseptor',
             'content' => 'reseptor',
