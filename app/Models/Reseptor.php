@@ -11,7 +11,7 @@ class Reseptor extends Model
 
     protected $fillable = [
         'donor_id',
-        'create_by'
+        'created_by'
     ];
 
     public function detail()
