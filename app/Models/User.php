@@ -24,7 +24,8 @@ class User extends Authenticatable
         'enable',
         'last_login',
         'social_id',
-        'social_type'
+        'social_type',
+        'userable_id'
     ];
 
     /**
