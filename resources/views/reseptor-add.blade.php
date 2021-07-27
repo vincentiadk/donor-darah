@@ -221,7 +221,7 @@ function simpan() {
                     icon: 'success',
                     title: response.message
                 });
-                goToPage('{{ url("admin/reseptor")}}');
+                goToPage('admin/reseptor');
             } else if (response.status == 422) {
                 $('#validasi_element').show();
                 Toast.fire({

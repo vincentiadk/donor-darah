@@ -87,7 +87,7 @@ function simpan() {
                     icon: 'success',
                     title: response.message
                 });
-                goToPage('{{ url("admin/donor-history") }}');
+                goToPage('admin/donor-history');
             } else if (response.status == 422) {
                 $('#validasi_element').show();
                 Toast.fire({
