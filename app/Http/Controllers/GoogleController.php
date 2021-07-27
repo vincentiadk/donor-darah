@@ -23,12 +23,6 @@ class GoogleController extends Controller
     {
         $user = Socialite::driver('google')->user();
         $finduser = User::where('email', $user->email)->first();
-
-        if (!$finduser) {
-            User::where('social_type', 'google')
-                ->where('social_id', $user->id)
-                ->first();
-        }
         $time = now();
         if ($finduser) {
             session([
@@ -61,6 +55,7 @@ class GoogleController extends Controller
                 'social_type' => 'google',
                 'role_id' => 2,
                 'userable_id' => $donor->id,
+                'last_login'  => $time
             ]);
 
             session([
