@@ -107,7 +107,7 @@ class UserController extends Controller
         }
         $data['user'] = $user;
 
-        return view('layout.index', ['data' => $data]);
+        return view('user-form', ['data' => $data]);
     }
 
     public function setting()
