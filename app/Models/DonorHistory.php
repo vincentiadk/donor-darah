@@ -27,7 +27,7 @@ class DonorHistory extends Model
         return $this->belongsTo(Donor::class, 'reseptor_id');
     }
 
-    public function jenis_donor()
+    public function jenisDonor()
     {
         if($this->jenis_donor == '1') {
             return "Biasa";

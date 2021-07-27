@@ -20,14 +20,20 @@ class DonorHistoryController extends Controller
         return view('donorhistory', ['data' => $data]);
     }
 
-    public function add()
+    public function show()
     {
+        if (request('id') > 0) {
+            $donorhistory = DonorHistory::findOrFail(request('id'));
+        } else {
+            $donorhistory = new DonorHistory;
+        }
         $data = [
             'title' => 'Tambah Riwayat Donor Darah',
             'content' => 'donorhistory-add',
             'logs' => Helper::getLogs(session('id')),
+            'donorhistory'  => $donorhistory
         ];
-        return view('donorhistory-add', ['data' => $data]);
+        return view('donorhistory-form', ['data' => $data]);
     }
 
     public function datatable(Request $request)
@@ -52,8 +58,8 @@ class DonorHistoryController extends Controller
                     $nomor,
                     $val->tanggal_donor,
                     $val->instansi,
-                    $val->jenis_donor(),
-                    '<a href="#" class="btn btn-success">Ubah</a> <a href="#" class="btn btn-danger">Hapus</a>',
+                    $val->jenisDonor(),
+                    '<a href="#" onclick="goToPage(\'admin/donor-history/show?id='. $val->id .'\')" class="btn btn-success">Ubah</a><a href="#" onclick="delHistory('.$val->id.')" class="btn btn-danger">Hapus</a>',
                     ];
                 $nomor++;
             }
@@ -85,18 +91,40 @@ class DonorHistoryController extends Controller
                 'error' => $validator->errors(),
             ];
         } else {
-            DonorHistory::create([
-                'donor_id' => request('donor_id'),
-                'tanggal_donor'=> request('tanggal_donor'),
-                'instansi' => request('instansi'),
-                'reseptor_id'=> request('reseptor_id'),
-                'jenis_donor' => request('jenis_donor')
-            ]);
+            if(request('id') > 0) {
+                $donorhistory = DonorHistory::findOrFail(request('id'));
+                $donorhistory->update([
+                    'tanggal_donor'=> request('tanggal_donor'),
+                    'instansi' => request('instansi'),
+                    'reseptor_id'=> request('reseptor_id'),
+                    'jenis_donor' => request('jenis_donor')
+                ]);
+            } else {
+                DonorHistory::create([
+                    'donor_id' => request('donor_id'),
+                    'tanggal_donor'=> request('tanggal_donor'),
+                    'instansi' => request('instansi'),
+                    'reseptor_id'=> request('reseptor_id'),
+                    'jenis_donor' => request('jenis_donor')
+                ]);
+            }
             $response = [
                 'status' => 200,
                 'message' => 'Berhasil menyimpan',
             ];
         }
+        return response()->json($response);
+    }
+
+    public function delete()
+    {
+        DonorHistory::where('id', request('id'))
+            ->delete();
+
+        $response = [
+            'status' => 200,
+            'message' => 'Berhasil menghapus',
+        ];
         return response()->json($response);
     }
 }

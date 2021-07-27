@@ -23,19 +23,19 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Nama Sesuai KTP</label>
+                                <label class="col-lg-3 ">Nama Sesuai KTP</label>
                                 <div class="col-lg-9">
                                     <input name="nama_ktp" type="text" id="nama_ktp" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Nama Panggilan</label>
+                                <label class="col-lg-3 ">Nama Panggilan</label>
                                 <div class="col-lg-9">
                                     <input name="nama_panggilan" type="text" id="nama_panggilan" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group clearfix row">
-                                <label class="col-lg-3 text-right">Jenis Kelamin </label>
+                                <label class="col-lg-3 ">Jenis Kelamin </label>
                                 <div class="col-lg-9">
                                     <div class="icheck-primary d-inline">
                                         <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l">
@@ -52,13 +52,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Tanggal Lahir</label>
+                                <label class="col-lg-3 ">Tanggal Lahir</label>
                                 <div class="col-lg-9">
                                     <input name="tanggal_lahir" type="date" id="tanggal_lahir" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Nomor KTP</label>
+                                <label class="col-lg-3 ">Nomor KTP</label>
                                 <div class="col-lg-9">
                                     <input name="no_ktp" type="number" id="no_ktp" class="form-control">
                                 </div>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group clearfix row">
-                                <label class="col-lg-3 text-right">Golongan Darah </label>
+                                <label class="col-lg-3 ">Golongan Darah </label>
                                 <div class="col-lg-9">
                                     <div class="icheck-primary d-inline">
                                         <input type="radio" id="gol_darah" name="gol_darah" value="1">
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="form-group clearfix row">
-                                <label class="col-lg-3 text-right">Rhesus </label>
+                                <label class="col-lg-3 ">Rhesus </label>
                                 <div class="col-lg-9">
                                     <div class="icheck-primary d-inline">
                                         <input type="radio" id="rhesus" name="rhesus" value="1">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                             <div class="form-group clearfix row">
-                                <label class="col-lg-3 text-right">Jenis Donor </label>
+                                <label class="col-lg-3 ">Jenis Donor </label>
                                 <div class="col-lg-9">
                                     <div class="icheck-primary d-inline">
                                         <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
@@ -140,19 +140,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Peruntukan darah</label>
+                                <label class="col-lg-3 ">Peruntukan darah</label>
                                 <div class="col-lg-9">
                                     <input name="peruntukan" type="text" id="peruntukan" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Instansi</label>
+                                <label class="col-lg-3 ">Instansi</label>
                                 <div class="col-lg-9">
                                     <input name="instansi" type="text" id="instansi" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Provinsi</label>
+                                <label class="col-lg-3 ">Provinsi</label>
                                 <div class="col-lg-9">
                                     <select name="provinsi_code" class="form-control select2" id="provinsi_code">
                                         @foreach(App\Models\Provinsi::all() as $provinsi)
@@ -162,21 +162,21 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Kab/Kota</label>
+                                <label class="col-lg-3 ">Kab/Kota</label>
                                 <div class="col-lg-9">
                                     <select name="kabupaten_code" class="form-control select2" id="kabupaten_code">
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Kecamatan</label>
+                                <label class="col-lg-3 ">Kecamatan</label>
                                 <div class="col-lg-9">
                                     <select name="kecamatan_code" class="form-control select2" id="kecamatan_code">
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 text-right">Kelurahan</label>
+                                <label class="col-lg-3 ">Kelurahan</label>
                                 <div class="col-lg-9">
                                     <select name="kelurahan_code" class="form-control select2" id="kelurahan_code">
                                     </select>

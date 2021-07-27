@@ -12,6 +12,7 @@
                     {{ csrf_field() }}
                     <!-- Default box -->
                     <input name="donor_id" type="hidden" value="{{ session('id') }}">
+                    <input name="id" type="hidden" value="{{ $data['donorhistory']->id }}">
                     <div class="card card-row card-primary card-tabs col-md-6">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Riwayat Donor Darah</h3>
@@ -25,26 +26,26 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 text-left">Tanggal Donor</label>
                                 <div class="col-lg-9">
-                                    <input name="tanggal_donor" type="date" id="tanggal-donor" class="form-control">
+                                    <input name="tanggal_donor" type="date" id="tanggal-donor" class="form-control" value="{{ $data['donorhistory']->tanggal_donor }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 text-left">Intansi/RS tempat mendonorkan darah</label>
                                 <div class="col-lg-9">
-                                    <input name="instansi" type="text" id="instansi" class="form-control">
+                                    <input name="instansi" type="text" id="instansi" class="form-control" value="{{ $data['donorhistory']->instansi }}">
                                 </div>
                             </div>
                             <div class="form-group clearfix row">
                                 <label class="col-lg-3 text-left">Jenis donor </label>
                                 <div class="col-lg-9">
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
+                                        <input type="radio" id="jenis_donor" name="jenis_donor" value="1" @if($data['donorhistory']->jenis_donor == 1) checked @endif>
                                         <label for="jenis_donor">
                                             Biasa
                                         </label>
                                     </div>
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor2" name="jenis_donor" value="2">
+                                        <input type="radio" id="jenis_donor2" name="jenis_donor" value="2" @if($data['donorhistory']->jenis_donor == 2) checked @endif>
                                         <label for="jenis_donor2">
                                             Plasma Kovalen
                                         </label>
