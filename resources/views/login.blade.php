@@ -22,10 +22,10 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Login</b></a>
+                <a href="#" class="h1"><b>Darah.id</b></a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Sign in untuk mendonorkan darah Anda</p>
 
                 <form action="/login" method="post">
                     {{ csrf_field() }}
