@@ -1,3 +1,4 @@
+<input type="hidden" name="donor_id" value="{{ $data['donor']->id}}">
 <div class="form-group">
     <label>Nama Sesuai KTP</label>
     <input name="nama_ktp" type="text" id="nama_ktp" class="form-control" value="{{ $data['donor']->nama_ktp }}">
