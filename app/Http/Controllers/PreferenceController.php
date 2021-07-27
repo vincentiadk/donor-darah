@@ -34,12 +34,11 @@ class PreferenceController extends Controller
             ], [
                 'kabupaten_code' => request('kabupaten_code'),
             ]);
-        }
-        if (request('is_donor_biasa')) {
-            $donor->update(['is_donor_biasa' => request('is_donor_biasa')]);
-        }
-        if (request('is_donor_plasma')) {
-            $donor->update(['is_donor_plasma' => request('is_donor_plasma')]);
+        } else {
+            $donor->update([
+                'is_donor_biasa' => request('is_donor_biasa'),
+                'is_donor_plasma' => request('is_donor_plasma')
+            ]);
         }
         $response = [
             'status' => 200,
@@ -50,9 +49,7 @@ class PreferenceController extends Controller
 
     public function deleteLocation()
     {
-        \Log::info(request('donor_id'));
-        \Log::info(request('kabupaten_code'));
-        $locs = LocationPreference::where('donor_id', request('donor_id'))
+        LocationPreference::where('donor_id', request('donor_id'))
             ->where('kabupaten_code', request('kabupaten_code'))
             ->delete();
 

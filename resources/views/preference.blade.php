@@ -124,9 +124,6 @@ function delLocation(code) {
             kabupaten_code : code,
             donor_id : $('#donor_id').val()
         },
-        cache: false,
-        contentType: false,
-        processData: false,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
