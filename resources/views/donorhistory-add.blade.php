@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <form action="/admin/reseptor/store" method="post" enctype="multipart/form-data" id="form_data">
+    <form action="/admin/donor-history/store" method="post" enctype="multipart/form-data" id="form_data">
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -12,6 +12,7 @@
                     <!-- left column -->
                     {{ csrf_field() }}
                     <!-- Default box -->
+                    <input name="donor_id" type="hidden" value="{{ sesion('id) }}">
                     <div class="card card-row card-primary card-tabs col-md-6">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Riwayat Donor Darah</h3>
