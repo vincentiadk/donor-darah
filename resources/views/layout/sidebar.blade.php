@@ -19,7 +19,7 @@
                   data-accordion="false">
                   <li class="nav-item">
                       <a href="/" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon far fa-address-card"></i>
                           <p>
                               Data Diri
                           </p>
@@ -27,7 +27,7 @@
                   </li>
                   <li class="nav-item">
                       <a href="/admin/medical-history" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon fas fa-notes-medical"></i>
                           <p>
                               Riwayat Medis
                           </p>
@@ -35,7 +35,7 @@
                   </li>
                   <li class="nav-item">
                       <a href="/admin/preference" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon fas fa-hand-holding-medical"></i>
                           <p>
                               Kesediaan Mendonorkan Darah
                           </p>
@@ -43,7 +43,7 @@
                   </li>
                   <li class="nav-item">
                       <a href="/admin/reseptor" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon fas fa-first-aid"></i>
                           <p>
                               Reseptor
                           </p>
@@ -51,7 +51,7 @@
                   </li>
                   <li class="nav-item">
                       <a href="/admin/need-blood" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon fas fa-hospital-user"></i>
                           <p>
                               Membutuhkan Darah
                           </p>
@@ -59,7 +59,7 @@
                   </li>
                   <li class="nav-item">
                       <a href="/admin/donor-history" class="nav-link">
-                          <i class="nav-icon far fa-image"></i>
+                          <i class="nav-icon fas fa-history"></i>
                           <p>
                               Riwayat Donor Darah
                           </p>

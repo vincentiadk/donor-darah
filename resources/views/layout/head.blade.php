@@ -51,6 +51,19 @@
     <!-- AdminLTE for demo purposes -->
     <!--<script src="{{ asset('template/dist/js/demo.js') }}"></script>-->
 </head>
+<style>
+.content-wrapper {
+    height: 100%
+}
+
+.parent {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
 <script>
 
 bsCustomFileInput.init();
@@ -85,7 +98,12 @@ function refreshDropZone() {
     myDropzone.removeAllFiles(true);
     $('#keterangan_dropzone').html('');
 }
-
+function notificationLogin() {
+    Toast.fire({
+        icon: 'success',
+        title: "Anda login dengan google!"
+    });
+}
 function select2AutoSuggest(selector, endpoint, sourcepoint = '') {
     $(selector).select2({
         placeholder: '-- Pilih --',

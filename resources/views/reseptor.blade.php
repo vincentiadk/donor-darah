@@ -5,7 +5,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row parent">
                     <div class="col-md-3">
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">

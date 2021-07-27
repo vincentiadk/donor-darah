@@ -11,7 +11,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row parent">
                     <!-- left column -->
                     {{ csrf_field() }}
                     <!-- Default box -->
@@ -68,7 +68,6 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary" onclick="cancel()">Abaikan</button>
                             <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
                         </div>
                     </div>                   

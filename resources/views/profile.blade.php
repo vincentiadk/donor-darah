@@ -4,20 +4,15 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row parent">
                     <div class="col-md-12">
                         <div class="alert alert-danger" id="validasi_element" style="display:none;">
                             <ul id="validasi_content"></ul>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <!-- left column -->
-                    <!--<div class="col-md-6 center">-->
-
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-4">
+                    <div class="card card-row card-primary card-tabs col-md-4 ">
                         <div class="card-header">
                             <h3 class="card-title">Data Diri</h3>
                             <div class="card-tools">
@@ -40,13 +35,15 @@
                             <div class="form-group clearfix">
                                 <label>Jenis Kelamin </label>
                                 <div class="icheck-primary d-inline">
-                                    <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l" @if(strtolower($data['donor']->jenis_kelamin) == 'l') checked @endif>
+                                    <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l"
+                                        @if(strtolower($data['donor']->jenis_kelamin) == 'l') checked @endif>
                                     <label for="jenis_kelamin">
                                         Laki-laki
                                     </label>
                                 </div>
                                 <div class="icheck-primary d-inline">
-                                    <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p" @if(strtolower($data['donor']->jenis_kelamin) == 'p') checked @endif>
+                                    <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p"
+                                        @if(strtolower($data['donor']->jenis_kelamin) == 'p') checked @endif>
                                     <label for="jenis_kelamin2">
                                         Perempuan
                                     </label>
@@ -64,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-row card-warning card-tabs col-md-4">
+                    <div class="card card-row card-warning card-tabs col-md-4 ">
                         <div class="card-header">
                             <h3 class="card-title">Kontak</h3>
                             <div class="card-tools">
@@ -82,7 +79,8 @@
                             <div class="form-group">
                                 <label>Nomor Telepon</label>
                                 <input type="number" id="no_telp" class="form-control"
-                                    value="{{ $data['donor']->user? $data['donor']->user->no_telp : '' }}" name="no_telp">
+                                    value="{{ $data['donor']->user? $data['donor']->user->no_telp : '' }}"
+                                    name="no_telp">
                             </div>
                             <div class="form-group">
                                 <label>Whatsapp</label>
@@ -92,7 +90,7 @@
 
                         </div>
                     </div>
-                    <div class="card card-row card-secondary card-tabs col-md-4">
+                    <div class="card card-row card-secondary card-tabs col-md-4 ">
                         <div class="card-header">
                             <h3 class="card-title">Domisili</h3>
                             <div class="card-tools">
@@ -123,7 +121,7 @@
                             <div class="form-group">
                                 <label>Kecamatan</label>
                                 <select name="kecamatan_code" class="form-control" id="kecamatan_code">
-                                @if($data['donor']->kecamatan)
+                                    @if($data['donor']->kecamatan)
                                     <option value="{{ $data['donor']->kecamatan->code }}" selected>
                                         {{$data['donor']->kecamatan->name}}</option>
                                     @endif
@@ -132,7 +130,7 @@
                             <div class="form-group">
                                 <label>Kelurahan</label>
                                 <select name="kelurahan_code" class="form-control" id="kelurahan_code">
-                                @if($data['donor']->kelurahan)
+                                    @if($data['donor']->kelurahan)
                                     <option value="{{ $data['donor']->kelurahan->code }}" selected>
                                         {{$data['donor']->kelurahan->name}}</option>
                                     @endif
@@ -140,13 +138,8 @@
                             </div>
                         </div>
                     </div>
-                    <!--</div>-->
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="btn btn-secondary" onclick="cancel()">Abaikan</button>
-                        <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
-                    </div>
+
+                    <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
                 </div>
             </div>
         </section>
@@ -156,6 +149,7 @@
 select2AutoSuggest('#kabupaten_code', 'kabupaten', 'provinsi_code');
 select2AutoSuggest('#kecamatan_code', 'kecamatan', 'kabupaten_code');
 select2AutoSuggest('#kelurahan_code', 'kelurahan', 'kecamatan_code');
+
 function simpan() {
     event.preventDefault();
     var formData = new FormData($('#form_data')[0]);
