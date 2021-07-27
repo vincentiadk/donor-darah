@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->decimal('no_telp', 16, 0)->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('enable')->default(true);
             $table->unsignedBigInteger('userable_id')->nullable();
             $table->foreignId('role_id')->nullable()->constrained('roles');
