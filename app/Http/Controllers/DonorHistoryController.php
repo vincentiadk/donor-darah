@@ -40,10 +40,10 @@ class DonorHistoryController extends Controller
     {
         $start = $request->input('start');
         $length = $request->input('length');
-        $totalData = DonorHistory::count();
+        $totalData = DonorHistory::where('donor_id', session('id'))->count();
         $search = $request->input('search.value');
 
-        $filtered = DonorHistory::query();
+        $filtered = DonorHistory::where('donor_id', session('id'));
         $totalFiltered = $filtered->count();
 
         $queryData = $filtered->offset($start)
