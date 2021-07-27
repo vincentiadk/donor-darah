@@ -43,7 +43,7 @@ class NeedBloodController extends Controller
                     $val->detail->age,
                     $val->detail->jenis_donor(),
                     $val->detail->keperluan,
-                    $val->detail->propinsi ? $val->detail->propinsi->name : "",
+                    $val->detail->provinsi ? $val->detail->provinsi->name : "",
                     $val->detail->kabupaten ? $val->detail->kabupaten->name : "",
                     $val->detail->kecamatan ? $val->detail->kecamatan->name : "",
                     $val->detail->instansi,
