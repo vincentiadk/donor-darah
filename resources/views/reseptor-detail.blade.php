@@ -90,13 +90,13 @@
     <label class="col-lg-3 text-right">Jenis Donor </label>
     <div class="col-lg-9">
         <div class="icheck-primary d-inline">
-            <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
+            <input type="radio" id="jenis_donor" name="jenis_donor" value="1" @if($data['donor']->jenis_donor == '1') checked @endif>
             <label for="jenis_donor">
                 Biasa
             </label>
         </div>
         <div class="icheck-primary d-inline">
-            <input type="radio" id="jenis_donor2" name="jenis_donor" value="2">
+            <input type="radio" id="jenis_donor2" name="jenis_donor" value="2" @if($data['donor']->jenis_donor == '2') checked @endif>
             <label for="jenis_donor2">
                 Plasma Kovalen
             </label>
