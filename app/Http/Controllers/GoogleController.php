@@ -7,6 +7,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Exception;
 use App\Models\User;
 use App\Models\Log;
+use App\Models\Donor;
 
 class GoogleController extends Controller
 {
