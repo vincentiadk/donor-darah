@@ -189,63 +189,64 @@
             </div>
         </section>
     </form>
-    <script>
-    select2AutoSuggest('#kabupaten_code', 'kabupaten', 'provinsi_code');
-    select2AutoSuggest('#kecamatan_code', 'kecamatan', 'kabupaten_code');
-    select2AutoSuggest('#kelurahan_code', 'kelurahan', 'kecamatan_code');
+</div>
+<script>
+select2AutoSuggest('#kabupaten_code', 'kabupaten', 'provinsi_code');
+select2AutoSuggest('#kecamatan_code', 'kecamatan', 'kabupaten_code');
+select2AutoSuggest('#kelurahan_code', 'kelurahan', 'kecamatan_code');
 
-    function simpan() {
-        event.preventDefault();
-        var formData = new FormData($('#form_data')[0]);
-        $.ajax({
-            url: '{{ url("admin/reseptor/store") }}',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            beforeSend: function() {
-                loadingOpen('.content');
-                $('#validasi_element').hide();
-                $('#validasi_content').html('');
-            },
-            success: function(response) {
-                loadingClose('.content');
-                if (response.status == 200) {
-                    Toast.fire({
-                        icon: 'success',
-                        title: response.message
-                    });
-                    goToPage('{{ url("admin/reseptor")}}');
-                } else if (response.status == 422) {
-                    $('#validasi_element').show();
-                    Toast.fire({
-                        icon: 'info',
-                        title: 'Validasi'
-                    });
-
-                    $.each(response.error, function(i, val) {
-                        $('#validasi_content').append('<li>' + val + '</li>');
-                    })
-                } else {
-                    Toast.fire({
-                        icon: 'warning',
-                        title: response.message
-                    });
-                }
-            },
-            error: function() {
-                loadingClose('.content');
+function simpan() {
+    event.preventDefault();
+    var formData = new FormData($('#form_data')[0]);
+    $.ajax({
+        url: '{{ url("admin/reseptor/store") }}',
+        type: 'POST',
+        dataType: 'JSON',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen('.content');
+            $('#validasi_element').hide();
+            $('#validasi_content').html('');
+        },
+        success: function(response) {
+            loadingClose('.content');
+            if (response.status == 200) {
                 Toast.fire({
-                    icon: 'error',
-                    title: 'Server Error!'
+                    icon: 'success',
+                    title: response.message
+                });
+                goToPage('{{ url("admin/reseptor")}}');
+            } else if (response.status == 422) {
+                $('#validasi_element').show();
+                Toast.fire({
+                    icon: 'info',
+                    title: 'Validasi'
+                });
+
+                $.each(response.error, function(i, val) {
+                    $('#validasi_content').append('<li>' + val + '</li>');
+                })
+            } else {
+                Toast.fire({
+                    icon: 'warning',
+                    title: response.message
                 });
             }
+        },
+        error: function() {
+            loadingClose('.content');
+            Toast.fire({
+                icon: 'error',
+                title: 'Server Error!'
+            });
+        }
 
-        });
-    }
-    </script>
+    });
+}
+</script>
