@@ -54,7 +54,6 @@
 <style>
 .content-wrapper {
     height: 100%;
-    background-image: url('https://darah.id/sitepad-data/uploads//2021/07/home-header01.jpg');
 }
 
 .parent {
