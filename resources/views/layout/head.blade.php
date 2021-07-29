@@ -69,9 +69,9 @@
 <script>
 function goToPage(page) {
     event.preventDefault();
-    loadingOpen('#myContent');
+    loadingOpen('.content');
     $("#myContent").load("{{url('')}}" + "/" + page);
-    loadingClose('#myContent');
+    loadingClose('.content');
 }
 bsCustomFileInput.init();
 

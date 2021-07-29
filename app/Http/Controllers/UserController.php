@@ -70,7 +70,7 @@ class UserController extends Controller
                     $val->email,
                     $val->role->name,
                     $aksi .
-                    '<a href="#" onclick="goToPage(\'admin\/user\/show\/'. $val->id .'\')" class="btn btn-success">Lihat</a>',
+                    '<a href="#" onclick="goToPage(\'admin\/user\/show\/'. $val->id .'\')" class="btn btn-success">Ubah</a>',
                 ];
                 $nomor++;
             }
