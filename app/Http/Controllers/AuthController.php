@@ -94,7 +94,6 @@ class AuthController extends Controller
                 'nama_ktp.required' => 'Nama wajib diisi!',
                 'email.required' => 'Email wajib diisi!',
                 'email.unique' => 'Email Telah Terdaftar!',
-                'password.required' => 'Password wajib diisi!',
                 'whatsapp.required' => 'Nomor WhatsApp wajib diisi!',
                 'whatsapp.numeric' => 'Nomor WhatsApp harus berupa angka!',
                 'whatsapp.unique' => "Nomor Whatsapp sudah terdaftar!",
@@ -127,6 +126,7 @@ class AuthController extends Controller
                     'password' => Hash::make(request('password')),
                     'userable_id' => $donor->id,
                     'role_id' => 2,
+                    'no_telp'   => '62' . request('whatsapp'),
                     'email_verified_at' => date('Y-m-d'),
                 ]);
                 $time = now();
