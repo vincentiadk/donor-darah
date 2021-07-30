@@ -73,11 +73,14 @@
                 <div class="social-auth-links text-center mb-3">
                     <p>- OR -</p>
                     <a href="{{ url('auth/google') }}" class="btn btn-block btn-danger">
-                        <i class="fab fa-google mr-2"></i> Sign in using Google
+                        <i class="fab fa-google mr-2"></i> Sign in menggunakan Google
                     </a>
                 </div>
                 <p class="mb-1">
-                    <a href="/forgot-password">I forgot my password</a>
+                    <a href="/forgot-password">Lupa password</a>
+                </p>
+                <p class="mb-1">
+                    <a href="/registration">Registrasi</a>
                 </p>
             </div>
             <!-- /.card-body -->
