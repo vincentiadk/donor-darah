@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 Route::match(['get', 'post'], 'login', 'AuthController@login');
-Route::get('/logout', 'AuthController@logout');
+Route::get('logout', 'AuthController@logout');
+Route::match(['get', 'post'], 'registration', 'AuthController@registration');
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 Route::get('auth/check-login', 'AuthController@checkLogin');

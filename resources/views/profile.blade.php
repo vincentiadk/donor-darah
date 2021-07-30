@@ -23,7 +23,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3">Nama Sesuai KTP</label>
                                         <input name="nama_ktp" type="text" id="nama_ktp" class="form-control col-md-9"
-                                            value="{{ $data['donor']->nama_ktp }}">
+                                            value="{{ $data['donor']->nama_ktp }}" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3">Nama Panggilan</label>
@@ -58,23 +58,23 @@
                                     <div class="form-group row">
                                         <label class="col-md-3">Nomor KTP</label>
                                         <input name="no_ktp" type="number" id="no_ktp" class="form-control col-md-9"
-                                            value="{{ $data['donor']->no_ktp }}">
+                                            value="{{ $data['donor']->no_ktp }}" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3">Email</label>
                                         <input name="email" type="email" id="email" class="form-control col-md-9"
-                                            value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}">
+                                            value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3">Nomor Telepon</label>
                                         <input type="number" id="no_telp" class="form-control col-md-9"
                                             value="{{ $data['donor']->user? $data['donor']->user->no_telp : '' }}"
-                                            name="no_telp">
+                                            name="no_telp" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3">Whatsapp</label>
                                         <input type="number" id="whatsapp" class="form-control col-md-9" name="whatsapp"
-                                            value="{{ $data['donor']->whatsapp }}">
+                                            value="{{ $data['donor']->whatsapp }}" required>
                                     </div>
                                 </div>
 

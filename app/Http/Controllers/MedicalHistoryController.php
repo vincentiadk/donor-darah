@@ -41,9 +41,10 @@ class MedicalHistoryController extends Controller
         $message = '';
         $validator = Validator::make(request()->all(), [
             "gol_darah" => "required",
+            "rhesus" => "required",
         ], [
             "gol_darah.required" => "Golongan darah wajib dipilih!",
-            
+            "rhesus.required" => "Rhesus darah wajib dipilih!",
         ]);
         if ($validator->fails()) {
             $response = [

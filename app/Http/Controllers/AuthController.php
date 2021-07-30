@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Log;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -79,4 +80,66 @@ class AuthController extends Controller
             return "false";
         }
     }
+
+    public function registration()
+    {
+        if(request()->has('_token')) {
+            $validator = Validator::make(request()->all(), [
+                    'nama_ktp' =>"required",
+                    'email'     => 'required|email|unique:users,email',
+                    'whatsapp'  =>'required|numeric|unique:donors,whatsapp',
+                    'gol_darah' => 'required',
+                    'rhesus'    => 'required',
+                    'password'  =>  'confirmed,required_with:password_confirmed|required|min:6'
+                ], [
+                    'nama_ktp.required'  => 'Nama wajib diisi!',
+                    'email.required'     => 'Email wajib diisi!',
+                    'email.unique'       => 'Email Telah Terdaftar!',
+                    'password.required'  => 'Password wajib diisi!',
+                    'whatsapp.required' => 'Nomor WhatsApp wajib diisi!',
+                    'whatsapp.numeric'  => 'Nomor WhatsApp harus berupa angka!',
+                    'whatsapp.unique'   => "Nomor Whatsapp sudah terdaftar!",
+                    'gol_darah.required' => 'Golongan darah wajib diisi!',
+                    'rhesus.required'    => 'Rhesus wajib diisi!',
+                    'password.confirmed'   => 'Password konfirmasi harus sama dengan password awal!',
+                    'password.required' => 'Password harus diisi!',
+                    'password.min'  => 'Password minimal terdiri dari 6 karakter!'
+                ]);
+            if($validator->fails()) {
+                $response = [
+                    'status' => 422,
+                    'error'  => $validator->errors()
+                ];
+                return redirect()->back()->withErrors($validator);
+                //return response()->json($response);
+            }
+            try {
+                $donor = Donor::create([
+                    'nama_ktp'          => request('nama_ktp'),
+                    'nama_panggilan'    => count(explode(' ',request('nama_ktp'))) > 0 ? explode(' ', request('nama_ktp'))[0] : request('nama_ktp'),
+                    'gol_darah'     => request('gol_darah'),
+                    'rhesus'        => request('rhesus'),
+                    'whatsapp'      => request('whatsapp')
+                ]);
+                $user = User::create([
+                    'email'     => request('email'),
+                    'password'  => Hash::make(request('password')),
+                    'userable_id'   => $donor->id,
+                    'role_id'   => 2,
+                    'email_verified_at' => date('Y-m-d')
+                ]);
+            } catch (\Exception $e) {
+                session()->flash('failed', 'Gagal daftar!');
+                $response = [
+                    'status'  => 500,
+                    'message' => 'Gagal daftar'
+                ];
+            }
+            return redirect()->back();
+
+        } else {
+            return view('register');
+        }
+    }
+
 }
