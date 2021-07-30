@@ -37,7 +37,7 @@
                       <a href="#" class="nav-link" onclick="goToPage('admin/preference')">
                           <i class="nav-icon fas fa-hand-holding-medical"></i>
                           <p>
-                              Kesediaan Mendonorkan Darah
+                              Kesediaan Donor
                           </p>
                       </a>
                   </li>
