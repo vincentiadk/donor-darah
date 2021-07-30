@@ -66,7 +66,7 @@
                                     </div>
                                     <h3 class="text-center">MEDIS</h3>
                                     <div class="form-group form-inline">
-                                        <label class="col-md-4 my-auto">Terakhir melahirkan / keguguran </label>
+                                        <label class="col-md-4 my-auto">Terakhir melahirkan/keguguran </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->melahirkan_gugur) ==
                                                 '1') active @endif">
@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group form-inline">
-                                        <label class="col-md-4 my-auto">Tanggal melahirkan / keguguran</label>
+                                        <label class="col-md-4 my-auto">Tanggal melahirkan/keguguran</label>
                                         <input name="tanggal_melahirkan_gugur" type="date" id="tanggal_melahirkan_gugur"
                                             class="form-control col-md-6"
                                             value="{{ $data['donor']->tanggal_melahirkan_gugur }}">
@@ -250,7 +250,7 @@
                                         <input name="tanggal_vaksin" type="date" id="tanggal_vaksin"
                                             class="form-control col-md-6" value="{{ $data['donor']->tanggal_vaksin }}">
                                     </div>
-                                    <button class="btn btn-primary float-right" id="btn_simpan" url="{{ url('admin/medical-history/store') }}" onclick="simpan()">Simpan</button>
+                                    <button class="btn btn-danger float-right" id="btn_simpan" url="{{ url('admin/medical-history/store') }}" onclick="simpan()">Simpan</button>
                                 </div>
                             </div>
                         </div>
