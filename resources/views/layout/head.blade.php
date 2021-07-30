@@ -71,9 +71,22 @@
 <script>
 function goToPage(page) {
     event.preventDefault();
-    loadingOpen('.content');
-    $("#myContent").load("{{url('')}}" + "/" + page);
-    loadingClose('.content');
+    $.ajax({
+        url : "{{ url('auth/check-login') }}",
+        contentType : 'application/json',
+        dataType : 'json',
+        beforeSend: function( jqXHR ) {
+            loadingOpen('.content');
+        },
+        success : function(response) {
+            if(response == "true") {
+                $("#myContent").load("{{url('')}}" + "/" + page);
+            } else {
+                location.href = "{{ url('login') }}";
+            }
+            loadingClose('.content');
+        }
+    })
 }
 bsCustomFileInput.init();
 

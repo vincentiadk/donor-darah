@@ -5,6 +5,7 @@ Route::match(['get', 'post'], 'login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout');
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
+Route::get('auth/check-login', 'AuthController@checkLogin');
 
 Route::middleware('auth.login')->group(function () {
     Route::get('/', 'DashboardController@index');

@@ -70,4 +70,13 @@ class AuthController extends Controller
         session()->flush();
         return redirect('/login');
     }
+
+    public function checkLogin()
+    {
+        if (session()->has('id')) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
 }
