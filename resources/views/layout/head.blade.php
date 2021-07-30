@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('template/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.css') }}">
     <link rel="stylesheet" href="{{ asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
