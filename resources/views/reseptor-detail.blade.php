@@ -118,6 +118,7 @@
 <div class="form-group">
     <label>Provinsi</label>
     <select name="provinsi_code" class="form-control" id="provinsi_code">
+        <option value="">-- Pilih Provinsi--</option>
         @foreach(App\Models\Provinsi::all() as $provinsi)
         <option value="{{ $provinsi->code }}" @if($data['donor']->provinsi_code ==
             $provinsi->code) selected @endif>{{ $provinsi->name }}</option>
