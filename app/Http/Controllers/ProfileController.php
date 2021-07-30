@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Helper\Helper;
 use App\Models\Donor;
+use App\Models\User;
 use App\Models\LocationPreference;
 
 class ProfileController extends Controller
 {
     public function index()
     {
-        $donor = Donor::find(session('id'));
+        $donor = User::findOrFail(session('id'))->donor;
         $data = [
             'title' => 'Data Diri',
             'content' => 'profile',
@@ -24,7 +25,7 @@ class ProfileController extends Controller
 
     public function store()
     {
-        $donor = Donor::findOrFail(session('id'));
+        $donor = User::findOrFail(session('id'))->donor;
         Validator::extend('without_spaces', function ($attr, $value) {
             return preg_match('/^\S*$/u', $value);
         });
