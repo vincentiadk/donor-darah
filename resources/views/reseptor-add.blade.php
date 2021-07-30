@@ -4,17 +4,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row parent">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" id="validasi_element" style="display:none;">
-                            <ul id="validasi_content"></ul>
-                        </div>
-                    </div>
-                    <!-- left column -->
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-8">
+                    <div class="card card-row card-primary card-tabs col-md-10">
                         <div class="card-header">
-                            <h3 class="card-title">Data Reseptor</h3>
+                            <h3 class="card-title">Reseptor</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                     data-toggle="tooltip" title="Collapse">
@@ -22,170 +16,160 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Nama Sesuai KTP</label>
-                                <div class="col-lg-9">
-                                    <input name="nama_ktp" type="text" id="nama_ktp" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Nama Panggilan</label>
-                                <div class="col-lg-9">
-                                    <input name="nama_panggilan" type="text" id="nama_panggilan" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group clearfix row">
-                                <label class="col-lg-3 ">Jenis Kelamin </label>
-                                <div class="col-lg-9">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l">
-                                        <label for="jenis_kelamin">
-                                            Laki-laki
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p">
-                                        <label for="jenis_kelamin2">
-                                            Perempuan
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Tanggal Lahir</label>
-                                <div class="col-lg-9">
-                                    <input name="tanggal_lahir" type="date" id="tanggal_lahir" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Nomor KTP</label>
-                                <div class="col-lg-9">
-                                    <input name="no_ktp" type="number" id="no_ktp" class="form-control">
-                                </div>
-                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
 
+                                    <h3 class="text-center"> DATA RESEPTOR </h3>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Nama Sesuai KTP</label>
+                                        <div class="col-md-8">
+                                            <input name="nama_ktp" type="text" id="nama_ktp" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Nama Panggilan</label>
+                                        <div class="col-md-8">
+                                            <input name="nama_panggilan" type="text" id="nama_panggilan"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Jenis Kelamin</label>
+                                        <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="l"
+                                                    autocomplete="off">
+                                                Laki-laki
+                                            </label>
+                                            <label class="btn btn-secondary ">
+                                                <input type="radio" name="jenis_kelamin" id="jenis_kelamin2" value="p"
+                                                    autocomplete="off">
+                                                Perempuan
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Tanggal Lahir</label>
+                                        <div class="col-md-8">
+                                            <input name="tanggal_lahir" type="date" id="tanggal_lahir"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Nomor KTP</label>
+                                        <div class="col-md-8">
+                                            <input name="no_ktp" type="number" id="no_ktp" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="text-center">KEBUTUHAN DARAH</h3>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Golongan Darah</label>
+                                        <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="gol_darah" id="gol_darah" value="1"
+                                                    autocomplete="off">
+                                                A
+                                            </label>
+                                            <label class="btn btn-secondary ">
+                                                <input type="radio" name="gol_darah" id="gol_darah2" value="2"
+                                                    autocomplete="off">
+                                                B
+                                            </label>
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="gol_darah" id="gol_darah3" value="3"
+                                                    autocomplete="off">
+                                                AB
+                                            </label>
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="gol_darah" id="gol_darah4" value="4"
+                                                    autocomplete="off">
+                                                O
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Rhesus</label>
+                                        <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+                                            <label class="btn btn-secondary ">
+                                                <input type="radio" name="rhesus" id="rhesus" value="1"
+                                                    autocomplete="off">
+                                                Positif
+                                            </label>
+                                            <label class="btn btn-secondary  ">
+                                                <input type="radio" name="rhesus" id="rhesus1" value="0"
+                                                    autocomplete="off">
+                                                Negatif
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Jenis Donor</label>
+                                        <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="jenis_donor" id="jenis_donor" value="1"
+                                                    autocomplete="off">
+                                                Biasa
+                                            </label>
+                                            <label class="btn btn-secondary ">
+                                                <input type="radio" name="jenis_donor" id="jenis_donor2" value="2"
+                                                    autocomplete="off">
+                                                Plasma Kovalen
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Peruntukan darah</label>
+                                        <div class="col-md-8">
+                                            <input name="peruntukan" type="text" id="peruntukan" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Instansi/RS tempat dirawat</label>
+                                        <div class="col-md-8">
+                                            <input name="instansi" type="text" id="instansi" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Provinsi</label>
+                                        <div class="col-md-8">
+                                            <select name="provinsi_code" class="form-control select2"
+                                                id="provinsi_code">
+                                                @foreach(App\Models\Provinsi::all() as $provinsi)
+                                                <option value="{{ $provinsi->code }}">{{ $provinsi->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Kab/Kota</label>
+                                        <div class="col-md-8">
+                                            <select name="kabupaten_code" class="form-control select2"
+                                                id="kabupaten_code">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Kecamatan</label>
+                                        <div class="col-md-8">
+                                            <select name="kecamatan_code" class="form-control select2"
+                                                id="kecamatan_code">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 ">Kelurahan</label>
+                                        <div class="col-md-8">
+                                            <select name="kelurahan_code" class="form-control select2"
+                                                id="kelurahan_code">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-row card-primary card-tabs col-md-8">
-                        <div class="card-header">
-                            <h3 class="card-title">Data Keperluan Darah</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                    data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group clearfix row">
-                                <label class="col-lg-3 ">Golongan Darah </label>
-                                <div class="col-lg-9">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="gol_darah" name="gol_darah" value="1">
-                                        <label for="gol_darah">
-                                            A
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="gol_darah2" name="gol_darah" value="2">
-                                        <label for="gol_darah2">
-                                            B
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="gol_darah3" name="gol_darah" value="3">
-                                        <label for="gol_darah3">
-                                            AB
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="gol_darah4" name="gol_darah" value="4">
-                                        <label for="gol_darah4">
-                                            O
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group clearfix row">
-                                <label class="col-lg-3 ">Rhesus </label>
-                                <div class="col-lg-9">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="rhesus" name="rhesus" value="1">
-                                        <label for="rhesus">
-                                            Positif
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="rhesus2" name="rhesus" value="0">
-                                        <label for="rhesus2">
-                                            Negatif
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group clearfix row">
-                                <label class="col-lg-3 ">Jenis Donor </label>
-                                <div class="col-lg-9">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor" name="jenis_donor" value="1">
-                                        <label for="jenis_donor">
-                                            Biasa
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor2" name="jenis_donor" value="2">
-                                        <label for="jenis_donor2">
-                                            Plasma Kovalen
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Peruntukan darah</label>
-                                <div class="col-lg-9">
-                                    <input name="peruntukan" type="text" id="peruntukan" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Instansi</label>
-                                <div class="col-lg-9">
-                                    <input name="instansi" type="text" id="instansi" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Provinsi</label>
-                                <div class="col-lg-9">
-                                    <select name="provinsi_code" class="form-control select2" id="provinsi_code">
-                                        @foreach(App\Models\Provinsi::all() as $provinsi)
-                                        <option value="{{ $provinsi->code }}">{{ $provinsi->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Kab/Kota</label>
-                                <div class="col-lg-9">
-                                    <select name="kabupaten_code" class="form-control select2" id="kabupaten_code">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Kecamatan</label>
-                                <div class="col-lg-9">
-                                    <select name="kecamatan_code" class="form-control select2" id="kecamatan_code">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 ">Kelurahan</label>
-                                <div class="col-lg-9">
-                                    <select name="kelurahan_code" class="form-control select2" id="kelurahan_code">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
                     </div>
                 </div>
             </div>
@@ -213,7 +197,6 @@ function simpan() {
         },
         beforeSend: function() {
             loadingOpen('.content');
-            $('#validasi_element').hide();
             $('#validasi_content').html('');
         },
         success: function(response) {
@@ -225,15 +208,10 @@ function simpan() {
                 });
                 goToPage('admin/reseptor');
             } else if (response.status == 422) {
-                $('#validasi_element').show();
-                Toast.fire({
-                    icon: 'info',
-                    title: 'Validasi'
-                });
-
                 $.each(response.error, function(i, val) {
                     $('#validasi_content').append('<li>' + val + '</li>');
                 })
+                $('#modal_validation').modal('show');
             } else {
                 Toast.fire({
                     icon: 'warning',

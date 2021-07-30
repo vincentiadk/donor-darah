@@ -36,48 +36,54 @@
     <label>Nomor KTP</label>
     <input name="no_ktp" type="number" id="no_ktp" class="form-control" value="{{ $data['donor']->no_ktp }}">
 </div>
-<div class="form-group clearfix">
-    <label>Golongan Darah </label>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="gol_darah" name="gol_darah" value="1" @if($data['donor']->gol_darah == '1') checked
-        @endif>
-        <label for="gol_darah">
+<div class="form-group row">
+    <label class="col-md-4">Golongan Darah</label>
+    <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+        <label class="btn btn-secondary @if(strtolower($data['donor']->gol_darah) ==
+                                                '1') active @endif">
+            <input type="radio" name="gol_darah" id="gol_darah" value="1" autocomplete="off"
+                @if(strtolower($data['donor']->gol_darah) ==
+            '1') checked @endif>
             A
         </label>
-    </div>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="gol_darah2" name="gol_darah" value="2" @if($data['donor']->gol_darah == '2') checked
-        @endif>
-        <label for="gol_darah2">
+        <label class="btn btn-secondary @if(strtolower($data['donor']->gol_darah) ==
+                                                '2') active @endif">
+            <input type="radio" name="gol_darah" id="gol_darah2" value="2" autocomplete="off"
+                @if(strtolower($data['donor']->gol_darah) ==
+            '2') checked @endif>
             B
         </label>
-    </div>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="gol_darah3" name="gol_darah" value="3" @if($data['donor']->gol_darah == '3') checked
-        @endif>
-        <label for="gol_darah3">
+        <label class="btn btn-secondary @if(strtolower($data['donor']->gol_darah) ==
+                                                '3') active @endif">
+            <input type="radio" name="gol_darah" id="gol_darah3" value="3" autocomplete="off"
+                @if(strtolower($data['donor']->gol_darah) ==
+            '3') checked @endif>
             AB
         </label>
-    </div>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="gol_darah4" name="gol_darah" value="4" @if($data['donor']->gol_darah == '4') checked
-        @endif>
-        <label for="gol_darah4">
+        <label class="btn btn-secondary @if(strtolower($data['donor']->gol_darah) ==
+                                                '4') active @endif">
+            <input type="radio" name="gol_darah" id="gol_darah4" value="4" autocomplete="off"
+                @if(strtolower($data['donor']->gol_darah) ==
+            '4') checked @endif>
             O
         </label>
     </div>
 </div>
-<div class="form-group clearfix">
-    <label>Rhesus </label>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="rhesus" name="rhesus" value="1" @if($data['donor']->rhesus == '1') checked @endif>
-        <label for="rhesus">
+<div class="form-group row">
+    <label class="col-md-4">Rhesus</label>
+    <div class="btn-group btn-group-toggle col-md-8" data-toggle="buttons">
+        <label class="btn btn-secondary @if(strtolower($data['donor']->rhesus) ==
+                                                '1') active @endif">
+            <input type="radio" name="rhesus" id="rhesus" value="1" autocomplete="off"
+                @if(strtolower($data['donor']->rhesus) ==
+            '1') checked @endif>
             Positif
         </label>
-    </div>
-    <div class="icheck-primary d-inline">
-        <input type="radio" id="rhesus2" name="rhesus" value="0" @if($data['donor']->rhesus == '0') checked @endif>
-        <label for="rhesus2">
+        <label class="btn btn-secondary  @if(strtolower($data['donor']->rhesus) ==
+                                                '0') active @endif">
+            <input type="radio" name="rhesus" id="rhesus1" value="0" autocomplete="off"
+                @if(strtolower($data['donor']->rhesus) ==
+            '0') checked @endif>
             Negatif
         </label>
     </div>
@@ -86,21 +92,23 @@
     <label>Peruntukan</label>
     <input name="peruntukan" type="text" id="peruntukan" class="form-control" value="{{ $data['donor']->peruntukan }}">
 </div>
-<div class="form-group clearfix row">
-    <label class="col-lg-3 text-right">Jenis Donor </label>
-    <div class="col-lg-9">
-        <div class="icheck-primary d-inline">
-            <input type="radio" id="jenis_donor" name="jenis_donor" value="1" @if($data['donor']->jenis_donor == '1') checked @endif>
-            <label for="jenis_donor">
-                Biasa
-            </label>
-        </div>
-        <div class="icheck-primary d-inline">
-            <input type="radio" id="jenis_donor2" name="jenis_donor" value="2" @if($data['donor']->jenis_donor == '2') checked @endif>
-            <label for="jenis_donor2">
-                Plasma Kovalen
-            </label>
-        </div>
+<div class="form-group row">
+    <label class="col-md-3">Jenis donor </label>
+    <div class="btn-group btn-group-toggle col-md-9" data-toggle="buttons">
+        <label class="btn btn-secondary  @if(strtolower($data['donor']->jenis_donor) ==
+                                                '1') active @endif">
+            <input type="radio" name="jenis_donor" id="jenis_donor" value="1" autocomplete="off"
+                @if(strtolower($data['donor']->jenis_donor) ==
+            '1') checked @endif>
+            Biasa
+        </label>
+        <label class="btn btn-secondary  @if(strtolower($data['donor']->jenis_donor) ==
+                                                '2') active @endif">
+            <input type="radio" name="jenis_donor" id="jenis_donor1" value="2" autocomplete="off"
+                @if(strtolower($data['donor']->jenis_donor) ==
+            '2') checked @endif>
+            Plasma Kovalen
+        </label>
     </div>
 </div>
 <div class="form-group">

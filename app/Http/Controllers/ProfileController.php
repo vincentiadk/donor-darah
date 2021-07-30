@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Helper\Helper;
 use App\Models\Donor;
+use App\Models\LocationPreference;
 
 class ProfileController extends Controller
 {
@@ -78,6 +79,14 @@ class ProfileController extends Controller
                 'kelurahan_code' => request('kelurahan_code'),
                 'kecamatan_code' => request('kecamatan_code'),
             ]);
+            if(request('kabupaten_code') != "") {
+                LocationPreference::firstOrCreate([
+                    'donor_id' => $donor->id,
+                    'kabupaten_code' => request('kabupaten_code'),
+                ], [
+                    'kabupaten_code' => request('kabupaten_code'),
+                ]);
+            }
             $user = $donor->user;
             $user->update([
                 'no_telp' => request('no_telp'),

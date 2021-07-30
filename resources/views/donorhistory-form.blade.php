@@ -4,11 +4,6 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row parent">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" id="validasi_element" style="display:none;">
-                            <ul id="validasi_content"></ul>
-                        </div>
-                    </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
                     <input name="donor_id" type="hidden" value="{{ session('id') }}">
@@ -26,36 +21,40 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 text-left">Tanggal Donor</label>
                                 <div class="col-lg-9">
-                                    <input name="tanggal_donor" type="date" id="tanggal-donor" class="form-control" value="{{ $data['donorhistory']->tanggal_donor }}">
+                                    <input name="tanggal_donor" type="date" id="tanggal-donor" class="form-control"
+                                        value="{{ $data['donorhistory']->tanggal_donor }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 text-left">Intansi/RS tempat mendonorkan darah</label>
                                 <div class="col-lg-9">
-                                    <input name="instansi" type="text" id="instansi" class="form-control" value="{{ $data['donorhistory']->instansi }}">
+                                    <input name="instansi" type="text" id="instansi" class="form-control"
+                                        value="{{ $data['donorhistory']->instansi }}">
                                 </div>
                             </div>
-                            <div class="form-group clearfix row">
-                                <label class="col-lg-3 text-left">Jenis donor </label>
-                                <div class="col-lg-9">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor" name="jenis_donor" value="1" @if($data['donorhistory']->jenis_donor == 1) checked @endif>
-                                        <label for="jenis_donor">
-                                            Biasa
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="jenis_donor2" name="jenis_donor" value="2" @if($data['donorhistory']->jenis_donor == 2) checked @endif>
-                                        <label for="jenis_donor2">
-                                            Plasma Kovalen
-                                        </label>
-                                    </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Jenis donor </label>
+                                <div class="btn-group btn-group-toggle col-md-9" data-toggle="buttons">
+                                    <label class="btn btn-secondary  @if(strtolower($data['donorhistory']->jenis_donor) ==
+                                                '1') active @endif">
+                                        <input type="radio" name="jenis_donor" id="jenis_donor" value="1"
+                                            autocomplete="off" @if(strtolower($data['donorhistory']->jenis_donor) ==
+                                        '1') checked @endif>
+                                        Biasa
+                                    </label>
+                                    <label class="btn btn-secondary  @if(strtolower($data['donorhistory']->jenis_donor) ==
+                                                '2') active @endif">
+                                        <input type="radio" name="jenis_donor" id="jenis_donor1" value="2"
+                                            autocomplete="off" @if(strtolower($data['donorhistory']->jenis_donor) ==
+                                        '2') checked @endif>
+                                        Plasma Kovalen
+                                    </label>
                                 </div>
                             </div>
                             <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
@@ -78,7 +77,6 @@ function simpan() {
         },
         beforeSend: function() {
             loadingOpen('.content');
-            $('#validasi_element').hide();
             $('#validasi_content').html('');
         },
         success: function(response) {
@@ -90,15 +88,10 @@ function simpan() {
                 });
                 goToPage('admin/donor-history');
             } else if (response.status == 422) {
-                $('#validasi_element').show();
-                Toast.fire({
-                    icon: 'info',
-                    title: 'Validasi'
-                });
-
                 $.each(response.error, function(i, val) {
                     $('#validasi_content').append('<li>' + val + '</li>');
                 })
+                $('#modal_validation').modal('show');
             } else {
                 Toast.fire({
                     icon: 'warning',

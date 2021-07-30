@@ -22,9 +22,10 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link" onclick="goToPage('admin/need-blood')">Membutuhkan Darah</a>
-                </li><li class="nav-item d-none d-sm-inline-block">
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">Riwayat Donor</a>
-                </li>               
+                </li>
             </ul>
 
             <!-- Right navbar links -->
@@ -43,7 +44,8 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         @endforeach
-                        <a href="#" class="dropdown-item dropdown-footer" onclick="goToPage('admin/log')">Lihat Semua Log</a>
+                        <a href="#" class="dropdown-item dropdown-footer" onclick="goToPage('admin/log')">Lihat Semua
+                            Log</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -56,21 +58,45 @@
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header"> <h3>{{ session('name') }}</h3></span>
+                        <span class="dropdown-item dropdown-header">
+                            <h3>{{ session('name') }}</h3>
+                        </span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            Role <span class="float-right text-muted text-sm">{{ App\Models\Role::find(session('role_id'))->name }}</span>
+                            Role <span
+                                class="float-right text-muted text-sm">{{ App\Models\Role::find(session('role_id'))->name }}</span>
                         </a>
-                        
+
                         <a href="#" class="dropdown-item">
-                            Terakhir Login 
+                            Terakhir Login
                             <span class="float-right text-muted text-sm">{{ session('last_login') }}</span>
                         </a>
-                        <a href="#" class="btn btn-secondary" style="width:100%" onclick="goToPage('admin/user/setting')"><i class="fas fa-cog"> </i>  Pengaturan 
+                        <a href="#" class="btn btn-secondary" style="width:100%"
+                            onclick="goToPage('admin/user/setting')"><i class="fas fa-cog"> </i> Pengaturan
                         </a>
-                        <a href="/logout" class="btn btn-danger" style="width:100%"> <i class="fas fa-sign-out-alt"> </i>Logout</a>
+                        <a href="/logout" class="btn btn-danger" style="width:100%"> <i class="fas fa-sign-out-alt">
+                            </i>Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
         <!-- /.navbar -->
+        <div class="modal animated bounceInRight text-left " id="modal_validation" data-backdrop="static" role="dialog"
+            aria-labelledby="myModalLabel50" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content bg-danger">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel50">Error!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="validasi_content"></ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>

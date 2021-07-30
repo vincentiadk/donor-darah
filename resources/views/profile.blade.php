@@ -5,11 +5,6 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row parent">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" id="validasi_element" style="display:none;">
-                            <ul id="validasi_content"></ul>
-                        </div>
-                    </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
                     <div class="card card-row card-primary card-tabs col-md-10 center">
@@ -153,7 +148,6 @@ function simpan() {
         },
         beforeSend: function() {
             loadingOpen('.content');
-            $('#validasi_element').hide();
             $('#validasi_content').html('');
         },
         success: function(response) {
@@ -164,15 +158,10 @@ function simpan() {
                     title: response.message
                 });
             } else if (response.status == 422) {
-                $('#validasi_element').show();
-                Toast.fire({
-                    icon: 'info',
-                    title: 'Validasi'
-                });
-
                 $.each(response.error, function(i, val) {
                     $('#validasi_content').append('<li>' + val + '</li>');
                 })
+                $('#modal_validation').modal('show');
             } else {
                 Toast.fire({
                     icon: 'warning',
