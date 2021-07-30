@@ -106,7 +106,7 @@
                                         </select>
                                     </div>
 
-                                    <button class="btn btn-primary mx-auto" url="{{ url('admin/profile/store') }}" onclick="simpan()" id="btn_simpan">Simpan</button>
+                                    <button class="btn btn-danger mx-auto" url="{{ url('admin/profile/store') }}" onclick="simpan()" id="btn_simpan">Simpan</button>
                                 </div>
                             </form>
                         </div>

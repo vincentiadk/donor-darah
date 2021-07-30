@@ -15,7 +15,7 @@
                     <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">Riwayat Medis</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/preference')">Kesediaan Mendonorkan Darah</a>
+                    <a href="#" class="nav-link" onclick="goToPage('admin/preference')">Kesediaan Donor</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link" onclick="goToPage('admin/reseptor')">Reseptor</a>
