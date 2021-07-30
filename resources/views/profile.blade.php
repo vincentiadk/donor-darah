@@ -12,8 +12,8 @@
                     </div>
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-8 center">
-                        <div class="card-header">
+                    <div class="card card-row card-primary card-tabs col-md-10 center">
+                    <div class="card-header">
                             <h3 class="card-title">Data Diri</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"
@@ -22,127 +22,113 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Nama Sesuai KTP</label>
-                                <input name="nama_ktp" type="text" id="nama_ktp" class="form-control"
-                                    value="{{ $data['donor']->nama_ktp }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Nama Panggilan</label>
-                                <input name="nama_panggilan" type="text" id="nama_panggilan" class="form-control"
-                                    value="{{ $data['donor']->nama_panggilan }}">
-                            </div>
-                            <div class="form-group clearfix">
-                                <label>Jenis Kelamin </label>
-                                <div class="icheck-primary d-inline">
-                                    <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="l"
-                                        @if(strtolower($data['donor']->jenis_kelamin) == 'l') checked @endif>
-                                    <label for="jenis_kelamin">
-                                        Laki-laki
-                                    </label>
+                            <div class="row">
+                                <div class="col-md-6 padding">
+                                    <h3 class="text-center">BIODATA</h3>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Nama Sesuai KTP</label>
+                                        <input name="nama_ktp" type="text" id="nama_ktp" class="form-control col-md-9"
+                                            value="{{ $data['donor']->nama_ktp }}">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Nama Panggilan</label>
+                                        <input name="nama_panggilan" type="text" id="nama_panggilan"
+                                            class="form-control col-md-9" value="{{ $data['donor']->nama_panggilan }}">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Jenis Kelamin</label>
+                                        <div class="btn-group btn-group-toggle col-md-9" data-toggle="buttons">
+                                            <label class="btn btn-secondary @if(strtolower($data['donor']->jenis_kelamin) ==
+                                                'l') active @endif">
+                                                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="l"
+                                                    autocomplete="off" @if(strtolower($data['donor']->jenis_kelamin) ==
+                                                'l') checked @endif>
+                                                Laki-laki
+                                            </label>
+                                            <label class="btn btn-secondary @if(strtolower($data['donor']->jenis_kelamin) ==
+                                                'p') active @endif">
+                                                <input type="radio" name="jenis_kelamin" id="jenis_kelamin2" value="p"
+                                                    autocomplete="off" @if(strtolower($data['donor']->jenis_kelamin) ==
+                                                'p') checked @endif>
+                                                Perempuan
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-center">KONTAK</h3>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Tanggal Lahir</label>
+                                        <input name="tanggal_lahir" type="date" id="tanggal_lahir"
+                                            class="form-control col-md-9" value="{{ $data['donor']->tanggal_lahir }}">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Nomor KTP</label>
+                                        <input name="no_ktp" type="number" id="no_ktp" class="form-control col-md-9"
+                                            value="{{ $data['donor']->no_ktp }}">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Email</label>
+                                        <input name="email" type="email" id="email" class="form-control col-md-9"
+                                            value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Nomor Telepon</label>
+                                        <input type="number" id="no_telp" class="form-control col-md-9"
+                                            value="{{ $data['donor']->user? $data['donor']->user->no_telp : '' }}"
+                                            name="no_telp">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Whatsapp</label>
+                                        <input type="number" id="whatsapp" class="form-control col-md-9" name="whatsapp"
+                                            value="{{ $data['donor']->whatsapp }}">
+                                    </div>
                                 </div>
-                                <div class="icheck-primary d-inline">
-                                    <input type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="p"
-                                        @if(strtolower($data['donor']->jenis_kelamin) == 'p') checked @endif>
-                                    <label for="jenis_kelamin2">
-                                        Perempuan
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal Lahir</label>
-                                <input name="tanggal_lahir" type="date" id="tanggal_lahir" class="form-control"
-                                    value="{{ $data['donor']->tanggal_lahir }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Nomor KTP</label>
-                                <input name="no_ktp" type="number" id="no_ktp" class="form-control"
-                                    value="{{ $data['donor']->no_ktp }}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-row card-warning card-tabs col-md-8 center ">
-                        <div class="card-header">
-                            <h3 class="card-title">Kontak</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                    data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input name="email" type="email" id="email" class="form-control"
-                                    value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Nomor Telepon</label>
-                                <input type="number" id="no_telp" class="form-control"
-                                    value="{{ $data['donor']->user? $data['donor']->user->no_telp : '' }}"
-                                    name="no_telp">
-                            </div>
-                            <div class="form-group">
-                                <label>Whatsapp</label>
-                                <input type="number" id="whatsapp" class="form-control" name="whatsapp"
-                                    value="{{ $data['donor']->whatsapp }}">
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="card card-row card-secondary card-tabs col-md-8 center">
-                        <div class="card-header">
-                            <h3 class="card-title">Domisili</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                    data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i></button>
+                                <div class="col-md-6 padding">
+                                    <h3 class="text-center">DOMISILI</h3>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Provinsi</label>
+                                        <select name="provinsi_code" class="form-control select2bs4 col-md-9" id="provinsi_code">
+                                            @foreach(App\Models\Provinsi::all() as $provinsi)
+                                            <option value="{{ $provinsi->code }}" @if($data['donor']->provinsi_code ==
+                                                $provinsi->code) selected @endif>{{ $provinsi->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Kab/Kota</label>
+                                        <select name="kabupaten_code" class="form-control select2bs4 col-md-9" id="kabupaten_code" >
+                                            @if($data['donor']->kabupaten)
+                                            <option value="{{ $data['donor']->kabupaten->code }}" selected>
+                                                {{$data['donor']->kabupaten->name}}</option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Kecamatan</label>
+                                        <select name="kecamatan_code" class="form-control select2bs4 col-md-9" id="kecamatan_code">
+                                            @if($data['donor']->kecamatan)
+                                            <option value="{{ $data['donor']->kecamatan->code }}" selected>
+                                                {{$data['donor']->kecamatan->name}}</option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3">Kelurahan</label>
+                                        <select name="kelurahan_code" class="form-control select2bs4 col-md-9" id="kelurahan_code">
+                                            @if($data['donor']->kelurahan)
+                                            <option value="{{ $data['donor']->kelurahan->code }}" selected>
+                                                {{$data['donor']->kelurahan->name}}</option>
+                                            @endif
+                                        </select>
+                                    </div>
+
+                                    <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
+
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Provinsi</label>
-                                <select name="provinsi_code" class="form-control" id="provinsi_code">
-                                    @foreach(App\Models\Provinsi::all() as $provinsi)
-                                    <option value="{{ $provinsi->code }}" @if($data['donor']->provinsi_code ==
-                                        $provinsi->code) selected @endif>{{ $provinsi->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Kab/Kota</label>
-                                <select name="kabupaten_code" class="form-control" id="kabupaten_code">
-                                    @if($data['donor']->kabupaten)
-                                    <option value="{{ $data['donor']->kabupaten->code }}" selected>
-                                        {{$data['donor']->kabupaten->name}}</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Kecamatan</label>
-                                <select name="kecamatan_code" class="form-control" id="kecamatan_code">
-                                    @if($data['donor']->kecamatan)
-                                    <option value="{{ $data['donor']->kecamatan->code }}" selected>
-                                        {{$data['donor']->kecamatan->name}}</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Kelurahan</label>
-                                <select name="kelurahan_code" class="form-control" id="kelurahan_code">
-                                    @if($data['donor']->kelurahan)
-                                    <option value="{{ $data['donor']->kelurahan->code }}" selected>
-                                        {{$data['donor']->kelurahan->name}}</option>
-                                    @endif
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                    <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
                     </div>
                 </div>
-            </div>
         </section>
     </form>
 </div>

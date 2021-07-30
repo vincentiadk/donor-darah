@@ -55,7 +55,9 @@
 .content-wrapper {
     height: 100%;
 }
-
+.padding{
+    padding: 10px 25px;
+}
 .parent {
     height: 100%;
     display: flex;
@@ -117,6 +119,7 @@ function select2AutoSuggest(selector, endpoint, sourcepoint = '') {
         minimumInputLength: 1,
         allowClear: true,
         cache: true,
+        theme: 'bootstrap4',
         ajax: {
             url: '{{ url("admin/select2") }}' + '/' + endpoint,
             type: 'POST',
