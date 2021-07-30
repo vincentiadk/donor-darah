@@ -7,7 +7,7 @@
                 <div class="row parent">
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-10 center">
+                    <div class="card card-row card-primary card-tabs col-md-12 center">
                     <div class="card-header">
                             <h3 class="card-title">Data Diri</h3>
                             <div class="card-tools">

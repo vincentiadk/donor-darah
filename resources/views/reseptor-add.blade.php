@@ -6,7 +6,7 @@
                 <div class="row parent">
                     {{ csrf_field() }}
                     <!-- Default box -->
-                    <div class="card card-row card-primary card-tabs col-md-10">
+                    <div class="card card-row card-primary card-tabs col-md-12">
                         <div class="card-header">
                             <h3 class="card-title">Reseptor</h3>
                             <div class="card-tools">

@@ -79,7 +79,7 @@ function goToPage(page) {
             loadingOpen('.content');
         },
         success : function(response) {
-            if(response == "true") {
+            if(response) {
                 $("#myContent").load("{{url('')}}" + "/" + page);
             } else {
                 location.href = "{{ url('login') }}";
