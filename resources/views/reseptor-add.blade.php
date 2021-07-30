@@ -136,6 +136,7 @@
                                         <div class="col-md-8">
                                             <select name="provinsi_code" class="form-control select2"
                                                 id="provinsi_code">
+                                                <option value="">-- Pilih Provinsi--</option>
                                                 @foreach(App\Models\Provinsi::all() as $provinsi)
                                                 <option value="{{ $provinsi->code }}">{{ $provinsi->name }}</option>
                                                 @endforeach
