@@ -4,11 +4,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row parent">
-                    {{ csrf_field() }}
                     <!-- Default box -->
                     <div class="card card-row card-primary card-tabs col-md-12 center">
                         <div class="card-body">
                             <form action="/admin/profile/store" method="post" enctype="multipart/form-data" id="form_data">
+                                {{ csrf_field() }}
                                 <div class="col-md-12 padding">
                                     <h3 class="text-center">BIODATA</h3>
                                     <div class="form-group row">
