@@ -51,7 +51,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <button onclick="simpan()" class="btn btn-primary"> Simpan </button>
+                            <button onclick="simpan()" od="btn_simpan" url="{{ url('admin/donor-history/store') }}" class="btn btn-primary"> Simpan </button>
                         </div>
                     </div>
 
@@ -60,53 +60,3 @@
         </section>
     </form>
 </div>
-<script>
-function simpan() {
-    event.preventDefault();
-    var formData = new FormData($('#form_data')[0]);
-    $.ajax({
-        url: '{{ url("admin/donor-history/store") }}',
-        type: 'POST',
-        dataType: 'JSON',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        beforeSend: function() {
-            loadingOpen('.content');
-            $('#validasi_content').html('');
-        },
-        success: function(response) {
-            loadingClose('.content');
-            if (response.status == 200) {
-                Toast.fire({
-                    icon: 'success',
-                    title: response.message
-                });
-                goToPage('admin/donor-history');
-            } else if (response.status == 422) {
-                $.each(response.error, function(i, val) {
-                    $('#validasi_content').append('<li>' + val + '</li>');
-                })
-                $('#modal_validation').modal('show');
-            } else {
-                Toast.fire({
-                    icon: 'warning',
-                    title: response.message
-                });
-            }
-        },
-        error: function() {
-            loadingClose('.content');
-            Toast.fire({
-                icon: 'error',
-                title: 'Server Error!'
-            });
-        }
-
-    });
-}
-</script>

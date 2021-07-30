@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ asset('template/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 <div class="content-wrapper">
     <form action="/admin/preference/store" method="post" enctype="multipart/form-data" id="form_data">
         {{ csrf_field() }}
@@ -6,11 +5,6 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row parent">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" id="validasi_element" style="display:none;">
-                            <ul id="validasi_content"></ul>
-                        </div>
-                    </div>
                     <div class="col-md-3">
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
@@ -55,61 +49,7 @@
 <script>
 function getDetailReseptor(id) {
     event.preventDefault();
-    $("#datareseptor").load("{{url('admin/reseptor/view')}}" + "/" + id);
-    $("#donorpotential").load("{{url('admin/reseptor/donor-potential')}}" + "/" + id)
-}
-function simpan() {
-    event.preventDefault();
-    var formData = new FormData($('#form_data')[0]);
-    $.ajax({
-        url: '{{ url("admin/reseptor/store") }}',
-        type: 'POST',
-        dataType: 'JSON',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        beforeSend: function() {
-            loadingOpen('.content');
-            $('#validasi_element').hide();
-            $('#validasi_content').html('');
-        },
-        success: function(response) {
-            loadingClose('.content');
-            if (response.status == 200) {
-                Toast.fire({
-                    icon: 'success',
-                    title: response.message
-                });
-            } else if (response.status == 422) {
-                $('#validasi_element').show();
-                Toast.fire({
-                    icon: 'info',
-                    title: 'Validasi'
-                });
-
-                $.each(response.error, function(i, val) {
-                    $('#validasi_content').append('<li>' + val + '</li>');
-                })
-            } else {
-                Toast.fire({
-                    icon: 'warning',
-                    title: response.message
-                });
-            }
-
-        },
-        error: function() {
-            loadingClose('.content');
-            Toast.fire({
-                icon: 'error',
-                title: 'Server Error!'
-            });
-        }
-
-    });
+    loadPage("admin/reseptor/view/" + id, "#datareseptor");
+    loadPage("admin/reseptor/donor-potential/" + id, "#donorpotential");
 }
 </script>

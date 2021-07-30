@@ -55,32 +55,103 @@
 .content-wrapper {
     height: 100%;
 }
-.padding{
+
+.padding {
     padding: 10px 25px;
 }
+
 .parent {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .card {
-    background-color: rgba(255,255,255,0.85)
+    background-color: rgba(255, 255, 255, 0.85)
 }
 </style>
 <script>
 function goToPage(page) {
     event.preventDefault();
     $.ajax({
-        url : "{{ url('auth/check-login') }}",
-        contentType : 'application/json',
-        dataType : 'json',
-        beforeSend: function( jqXHR ) {
+        url: "{{ url('auth/check-login') }}",
+        contentType: 'application/json',
+        dataType: 'json',
+        beforeSend: function(jqXHR) {
             loadingOpen('.content');
         },
-        success : function(response) {
-            if(response) {
+        success: function(response) {
+            if (response) {
                 $("#myContent").load("{{url('')}}" + "/" + page);
+            } else {
+                location.href = "{{ url('login') }}";
+            }
+            loadingClose('.content');
+        }
+    })
+}
+
+function simpan() {
+    event.preventDefault();
+    var url = $("#btn_simpan").attr('url');
+    var formData = new FormData($('#form_data')[0]);
+    $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'JSON',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen('.content');
+            $('#validasi_content').html('');
+        },
+        success: function(response) {
+            loadingClose('.content');
+            if (response.status == 200) {
+                Toast.fire({
+                    icon: 'success',
+                    title: response.message
+                });
+            } else if (response.status == 422) {
+                $.each(response.error, function(i, val) {
+                    $('#validasi_content').append('<li>' + val + '</li>');
+                })
+                $('#modal_validation').modal('show');
+            } else {
+                Toast.fire({
+                    icon: 'warning',
+                    title: response.message
+                });
+            }
+        },
+        error: function() {
+            loadingClose('.content');
+            Toast.fire({
+                icon: 'error',
+                title: 'Server Error!'
+            });
+        }
+    });
+}
+
+function loadPage(page, selector) {
+    event.preventDefault();
+    $.ajax({
+        url: "{{ url('auth/check-login') }}",
+        contentType: 'application/json',
+        dataType: 'json',
+        beforeSend: function(jqXHR) {
+            loadingOpen('.content');
+        },
+        success: function(response) {
+            if (response) {
+                $(selector).load("{{url('')}}" + "/" + page);
             } else {
                 location.href = "{{ url('login') }}";
             }
@@ -120,12 +191,14 @@ function refreshDropZone() {
     myDropzone.removeAllFiles(true);
     $('#keterangan_dropzone').html('');
 }
+
 function notificationLogin() {
     Toast.fire({
         icon: 'success',
         title: "Anda login dengan google!"
     });
 }
+
 function select2AutoSuggest(selector, endpoint, sourcepoint = '') {
     $(selector).select2({
         placeholder: '-- Pilih --',
@@ -142,7 +215,7 @@ function select2AutoSuggest(selector, endpoint, sourcepoint = '') {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: function(params) {
-                if(sourcepoint != '') {
+                if (sourcepoint != '') {
                     var query = {
                         search: params.term,
                         sourcepoint: $('#' + sourcepoint).val()

@@ -260,7 +260,7 @@
                                         <input name="tanggal_vaksin" type="date" id="tanggal_vaksin"
                                             class="form-control col-md-8" value="{{ $data['donor']->tanggal_vaksin }}">
                                     </div>
-                                    <button class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
+                                    <button class="btn btn-primary float-right" id="btn_simpan" url="{{ url('admin/medical-history/store') }}" onclick="simpan()">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -270,53 +270,3 @@
         </section>
     </form>
 </div>
-<script>
-function simpan() {
-    event.preventDefault();
-    var formData = new FormData($('#form_data')[0]);
-    $.ajax({
-        url: '{{ url("admin/medical-history/store") }}',
-        type: 'POST',
-        dataType: 'JSON',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        beforeSend: function() {
-            loadingOpen('.content');
-            $('#validasi_element').hide();
-            $('#validasi_content').html('');
-        },
-        success: function(response) {
-            loadingClose('.content');
-            if (response.status == 200) {
-                Toast.fire({
-                    icon: 'success',
-                    title: response.message
-                });
-            } else if (response.status == 422) {
-                $.each(response.error, function(i, val) {
-                    $('#validasi_content').append('<li>' + val + '</li>');
-                })
-                $('#modal_validation').modal('show');
-            } else {
-                Toast.fire({
-                    icon: 'warning',
-                    title: response.message
-                });
-            }
-        },
-        error: function() {
-            loadingClose('.content');
-            Toast.fire({
-                icon: 'error',
-                title: 'Server Error!'
-            });
-        }
-
-    });
-}
-</script>
