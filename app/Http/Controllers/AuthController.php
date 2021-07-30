@@ -90,7 +90,7 @@ class AuthController extends Controller
                     'whatsapp'  =>'required|numeric|unique:donors,whatsapp',
                     'gol_darah' => 'required',
                     'rhesus'    => 'required',
-                    'password'  =>  'confirmed,required_with:password_confirmed|required|min:6'
+                    'password'  =>  'confirmed:password_confirmed|required|min:6'
                 ], [
                     'nama_ktp.required'  => 'Nama wajib diisi!',
                     'email.required'     => 'Email wajib diisi!',
