@@ -110,7 +110,10 @@ class AuthController extends Controller
                     'status' => 422,
                     'error'  => $validator->errors()
                 ];
-                return redirect()->back()->withErrors($validator);
+                return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors($validator);
                 //return response()->json($response);
             }
             try {

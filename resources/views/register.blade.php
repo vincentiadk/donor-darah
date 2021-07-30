@@ -48,7 +48,7 @@
                     </div>
                     @endif
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="nama_ktp" placeholder="Nama Sesuai KTP" required>
+                        <input type="text" class="form-control" name="nama_ktp" placeholder="Nama Sesuai KTP" required value="{{ old('nama_ktp') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required value="{{ old('email') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -69,26 +69,26 @@
                                 <span>+ 62</span>
                             </div>
                         </div>
-                        <input type="number" class="form-control" name="whatsapp" placeholder="Nomor Whatsapp" required>
+                        <input type="number" class="form-control" name="whatsapp" placeholder="Nomor Whatsapp" required value="{{ old('whatsapp') }}">
 
                     </div>
                     <div class="form-group clearfix">
                         <label>Golongan Darah</label>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="gol_darah" id="gol_darah" value="1" autocomplete="off">
+                            <label class="btn btn-secondary @if(old('gol_darah') == '1') active @endif">
+                                <input type="radio" name="gol_darah" id="gol_darah" value="1" autocomplete="off" @if(old('gol_darah') == '1') checked @endif>
                                 A
                             </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="gol_darah" id="gol_darah2" value="2" autocomplete="off">
+                            <label class="btn btn-secondary @if(old('gol_darah') == '2') active @endif">
+                                <input type="radio" name="gol_darah" id="gol_darah2" value="2" autocomplete="off" @if(old('gol_darah') == '2') checked @endif>
                                 B
                             </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="gol_darah" id="gol_darah3" value="3" autocomplete="off">
+                            <label class="btn btn-secondary @if(old('gol_darah') == '3') active @endif">
+                                <input type="radio" name="gol_darah" id="gol_darah3" value="3" autocomplete="off" @if(old('gol_darah') == '3') checked @endif>
                                 AB
                             </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="gol_darah" id="gol_darah4" value="4" autocomplete="off">
+                            <label class="btn btn-secondary  @if(old('gol_darah') == '4') active @endif">
+                                <input type="radio" name="gol_darah" id="gol_darah4" value="4" autocomplete="off" @if(old('gol_darah') == '4') checked @endif>
                                 O
                             </label>
                         </div>
@@ -96,12 +96,12 @@
                     <div class="form-group clearfix">
                         <label>Rhesus</label>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="rhesus" id="rhesus" value="1" autocomplete="off">
+                            <label class="btn btn-secondary @if(old('rhesus') == '1') active @endif">
+                                <input type="radio" name="rhesus" id="rhesus" value="1" autocomplete="off" @if(old('rhesus') == '1') checked @endif>
                                 Positif
                             </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="rhesus" id="rhesus1" value="0" autocomplete="off">
+                            <label class="btn btn-secondary @if(old('rhesus') == '0') active @endif">
+                                <input type="radio" name="rhesus" id="rhesus1" value="0" autocomplete="off" @if(old('rhesus') == '0') checked @endif>
                                 Negatif
                             </label>
                         </div>
