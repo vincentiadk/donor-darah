@@ -29,7 +29,7 @@
                       <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">
                           <i class="nav-icon fas fa-notes-medical"></i>
                           <p>
-                              Riwayat Medis
+                              Data Medis
                           </p>
                       </a>
                   </li>
@@ -61,7 +61,7 @@
                       <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">
                           <i class="nav-icon fas fa-history"></i>
                           <p>
-                              Riwayat Donor Darah
+                              Riwayat Donor
                           </p>
                       </a>
                   </li>

@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="col-md-12 padding">
                                     <h3 class="text-center">DARAH</h3>
-                                    <div class="form-group form-horizontal">
+                                    <div class="form-group row">
                                         <label class="col-md-4">Golongan Darah</label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary @if(strtolower($data['donor']->gol_darah) ==
@@ -45,7 +45,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4">Rhesus</label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary @if(strtolower($data['donor']->rhesus) ==
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <h3 class="text-center">MEDIS</h3>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Terakhir melahirkan/keguguran </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->melahirkan_gugur) ==
@@ -84,13 +84,13 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Tanggal melahirkan/keguguran</label>
                                         <input name="tanggal_melahirkan_gugur" type="date" id="tanggal_melahirkan_gugur"
                                             class="form-control col-md-6"
                                             value="{{ $data['donor']->tanggal_melahirkan_gugur }}">
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Sedang menderita Diabetes </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary @if(strtolower($data['donor']->diabetes) ==
@@ -110,7 +110,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Sedang menderita hepatitis </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->hepatitis) ==
@@ -129,7 +129,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Sedang menderita AIDS </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->aids) ==
@@ -148,7 +148,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Merokok minimal 1 batang per hari </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->perokok) ==
@@ -168,7 +168,7 @@
                                         </div>
                                     </div>
                                     <h3 class="text-center">COVID-19</h3>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Pernah menderita COVID-19 </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->covid) ==
@@ -187,13 +187,13 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Tanggal dinyatakan negatif COVID-19</label>
                                         <input name="tanggal_sembuh_covid" type="date" id="tanggal_sembuh_covid"
                                             class="form-control col-md-6"
                                             value="{{ $data['donor']->tanggal_sembuh_covid }}">
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Vaksin COVID-19 </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->vaksin) ==
@@ -212,7 +212,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Jenis Vaksin Terakhir </label>
                                         <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
                                             <label class="btn btn-secondary  @if(strtolower($data['donor']->jenis_vaksin) ==
@@ -245,12 +245,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group row">
                                         <label class="col-md-4 my-auto">Tanggal terakhir vaksin</label>
                                         <input name="tanggal_vaksin" type="date" id="tanggal_vaksin"
                                             class="form-control col-md-6" value="{{ $data['donor']->tanggal_vaksin }}">
                                     </div>
-                                    <button class="btn btn-danger float-right" id="btn_simpan" url="{{ url('admin/medical-history/store') }}" onclick="simpan()">Simpan</button>
+                                    <button class="btn btn-danger" id="btn_simpan" url="{{ url('admin/medical-history/store') }}" onclick="simpan()">Simpan</button>
                                 </div>
                             </div>
                         </div>
