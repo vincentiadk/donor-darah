@@ -119,7 +119,7 @@ class AuthController extends Controller
                     'nama_panggilan' => count(explode(' ', request('nama_ktp'))) > 0 ? explode(' ', request('nama_ktp'))[0] : request('nama_ktp'),
                     'gol_darah' => request('gol_darah'),
                     'rhesus' => request('rhesus'),
-                    'whatsapp' => request('whatsapp'),
+                    'whatsapp' => '62' . request('whatsapp'),
                 ]);
                 $user = User::create([
                     'email' => request('email'),
