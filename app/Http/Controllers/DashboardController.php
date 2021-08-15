@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $donor = Donor::find(session('id'));
+        $donor = User::find(session('id'))->donor;
         $data = [
             'title' => 'Data Diri',
             'content' => 'profile',
