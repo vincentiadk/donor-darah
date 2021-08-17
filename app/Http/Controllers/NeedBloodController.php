@@ -48,7 +48,7 @@ class NeedBloodController extends Controller
                     $val->detail->kabupaten ? $val->detail->kabupaten->name : "",
                     $val->detail->kecamatan ? $val->detail->kecamatan->name : "",
                     $val->detail->instansi,
-                    $val->createdBy->donor->whatsapp != "" ? '<a href="https://api.whatsapp.com/send?phone='.$val->createdBy->donor->whatsapp.'text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah.">WA</a>' : ''
+                    $val->createdBy->donor->whatsapp != "" ? '<a href="https://api.whatsapp.com/send?phone='.$val->createdBy->donor->whatsapp.'text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah%20untuk%20' . $val->detail->nama_ktp . ">WA</a>' : ''
                 ];
                 $nomor++;
             }
