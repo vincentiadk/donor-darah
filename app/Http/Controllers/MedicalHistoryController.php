@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use App\Helper\Helper;
 use App\Models\Donor;
 use App\Models\User;
+use App\Http\Controllers\Traits\History;
 
 class MedicalHistoryController extends Controller
 {
+    use History;
+
     public function index()
     {
         $user = User::findOrFail(session('id'));
@@ -67,6 +70,7 @@ class MedicalHistoryController extends Controller
                 'jenis_vaksin' => request('jenis_vaksin'),
                 'tanggal_vaksin' => request('tanggal_vaksin'),
             ]);
+            $this->onChange("data medis", session('id'));
             $response = [
                 'status' => 200,
                 'message' => 'Berhasil menyimpan',

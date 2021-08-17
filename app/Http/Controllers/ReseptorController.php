@@ -7,9 +7,12 @@ use App\Models\Donor;
 use App\Models\Reseptor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Traits\History;
 
 class ReseptorController extends Controller
 {
+    use History;
+
     public function index()
     {
         if(session('id') != 1) {
@@ -126,6 +129,11 @@ class ReseptorController extends Controller
             ], [
                 'created_by' => session('id'),
             ]);
+            if ($reseptor->id) {
+                $this->onCreate("reseptor", session('id'));
+            } else {
+                $this->onChange("reseptor " . request('nama_ktp'), session('id'));
+            }
             $response = [
                 'status' => 200,
                 'message' => 'Berhasil menyimpan',

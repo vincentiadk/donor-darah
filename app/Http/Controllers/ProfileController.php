@@ -8,9 +8,12 @@ use App\Helper\Helper;
 use App\Models\Donor;
 use App\Models\User;
 use App\Models\LocationPreference;
+use App\Http\Controllers\Traits\History;
 
 class ProfileController extends Controller
 {
+    use History;
+
     public function index()
     {
         $donor = User::findOrFail(session('id'))->donor;
@@ -93,6 +96,7 @@ class ProfileController extends Controller
                 'no_telp' => request('no_telp'),
                 'email' => request('email')
             ]);
+            $this->onChange("data diri", session('id'));
             $response = [
                 'status' => 200,
                 'message' => 'Berhasil menyimpan',

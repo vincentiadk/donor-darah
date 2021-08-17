@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use App\Helper\Helper;
 use App\Models\Donor;
 use App\Models\DonorHistory;
+use App\Http\Controllers\Traits\History;
 
 class DonorHistoryController extends Controller
 {
+    use History;
+
     public function index()
     {
         $data = [
@@ -99,6 +102,7 @@ class DonorHistoryController extends Controller
                     'reseptor_id'=> request('reseptor_id'),
                     'jenis_donor' => request('jenis_donor')
                 ]);
+                $this->onChange("riwayat donor", session('id'));
             } else {
                 DonorHistory::create([
                     'donor_id' => request('donor_id'),
@@ -107,6 +111,7 @@ class DonorHistoryController extends Controller
                     'reseptor_id'=> request('reseptor_id'),
                     'jenis_donor' => request('jenis_donor')
                 ]);
+                $this->onCreate("riwayat donor", session('id'));
             }
             $response = [
                 'status' => 200,
@@ -120,7 +125,7 @@ class DonorHistoryController extends Controller
     {
         DonorHistory::where('id', request('id'))
             ->delete();
-
+        $this->onDelete("riwayat donor", session('id'));
         $response = [
             'status' => 200,
             'message' => 'Berhasil menghapus',

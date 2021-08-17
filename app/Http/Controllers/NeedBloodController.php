@@ -8,6 +8,7 @@ use App\Models\Reseptor;
 
 class NeedBloodController extends Controller
 {
+
     public function index()
     {
         $data = [

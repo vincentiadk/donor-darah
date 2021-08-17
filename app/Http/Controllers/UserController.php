@@ -7,9 +7,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Traits\History;
 
 class UserController extends Controller
 {
+    use History;
+    
     public function index()
     {
         if(!session('role_id') == 1) {
@@ -180,6 +183,7 @@ class UserController extends Controller
                                     'status' => 200,
                                     'message' => $message,
                                 ];
+                                $this->onChange("password", session('id'));
                             } else {
                                 $response = [
                                     'status' => 422,
@@ -205,6 +209,7 @@ class UserController extends Controller
                     'message' => 'Berhasil menyimpan',
                     'id' => $user->id,
                 ];
+                $this->onCreate("user", session('id'));
             }
         }
         return response()->json($response);
@@ -215,11 +220,12 @@ class UserController extends Controller
         if(!session('role_id') == 1){
             return abort(403);
         }
-        User::where('id', request('id'))->update(['enable' => 1]);
+        $user = User::where('id', request('id'))->update(['enable' => 1]);
         $response = [
             'status' => 200,
             'message' => 'Berhasil menyimpan',
         ];
+        $this->onChange("user menjadi aktif", session('id'));
         return response()->json($response);
     }
 
@@ -233,6 +239,7 @@ class UserController extends Controller
             'status' => 200,
             'message' => 'Berhasil menyimpan',
         ];
+        $this->onChange("user menjadi nonaktif", session('id'));
         return response()->json($response);
     }
 }

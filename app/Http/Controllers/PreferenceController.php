@@ -6,9 +6,12 @@ use App\Helper\Helper;
 use App\Models\LocationPreference;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Traits\History;
 
 class PreferenceController extends Controller
 {
+    use History;
+
     public function index()
     {
         $user = User::findOrFail(session('id'));
@@ -34,11 +37,13 @@ class PreferenceController extends Controller
             ], [
                 'kabupaten_code' => request('kabupaten_code'),
             ]);
+            $this->onCreate("lokasi donor", session('id'));
         } else {
             $donor->update([
                 'is_donor_biasa' => request('is_donor_biasa'),
                 'is_donor_plasma' => request('is_donor_plasma')
             ]);
+            $this->onChange("kesediaan donor", session('id'));
         }
         $response = [
             'status' => 200,
@@ -52,7 +57,7 @@ class PreferenceController extends Controller
         LocationPreference::where('donor_id', request('donor_id'))
             ->where('kabupaten_code', request('kabupaten_code'))
             ->delete();
-
+        $this->onDelete("lokasi donor", session('id'));
         $response = [
             'status' => 200,
             'message' => 'Berhasil menghapus',
