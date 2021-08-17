@@ -40,7 +40,7 @@ class GoogleController extends Controller
             ]);
             Log::create([
                 'user_id' => session('id'),
-                'activity' => 'login',
+                'activity' => 'login dengan google',
             ]);
             return redirect()->intended('admin/dashboard')->with(['success' => 'Sukses Login dengan Google!']);
 
@@ -66,7 +66,10 @@ class GoogleController extends Controller
                 'name' => $newUser->name,
                 'last_login' => $time,
             ]);
-
+            Log::create([
+                'user_id' => session('id'),
+                'activity' => 'login dengan google',
+            ]);
             return redirect()->intended('admin/dashboard')->with(['success' => 'Sukses Login dengan Google!']);
         }
     }

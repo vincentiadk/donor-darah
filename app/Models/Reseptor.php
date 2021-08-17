@@ -18,4 +18,9 @@ class Reseptor extends Model
     {
         return $this->belongsTo(Donor::class, 'donor_id');
     }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }
