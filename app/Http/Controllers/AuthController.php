@@ -129,6 +129,10 @@ class AuthController extends Controller
                     'no_telp'   => '62' . request('whatsapp'),
                     'email_verified_at' => date('Y-m-d'),
                 ]);
+                Log::create([
+                    'user_id' => $user->id,
+                    'activity' => 'registrasi berhasil',
+                ]);
                 $time = now();
                 session([
                     'id' => $user->id,
