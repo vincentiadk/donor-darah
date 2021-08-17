@@ -54,7 +54,7 @@ class LogController extends Controller
             foreach ($queryData as $val) {
                 $response['data'][] = [
                     $nomor,
-                    $val->user->name,
+                    $val->user->donor->nama_ktp,
                     $val->activity,
                     $val->description(),
                     $val->created_at,
