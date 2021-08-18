@@ -70,7 +70,7 @@ class DonorHistoryController extends Controller
                     $val->tanggal_donor,
                     $val->instansi,
                     $val->jenisDonor(),
-                    '<a href="#" onclick="goToPage(\'admin/donor-history/show?id='. $val->id .'\')" class="btn btn-success">Ubah</a><a href="#" onclick="delHistory('.$val->id.')" class="btn btn-danger">Hapus</a>',
+                    '<a href="' . url('admin/donor-history/show?id=' . $val->id) . '" class="btn btn-success page">Ubah</a><a href="#" onclick="delHistory('.$val->id.')" class="btn btn-danger">Hapus</a>',
                     ];
                 $nomor++;
             }
