@@ -26,9 +26,11 @@
                                 </div>
                                 <div class="form-group" id="location_preference">
                                     @foreach($data['location_preferens'] as $loc)
+                                    @if($loc->location)
                                     <li>{{ $loc->location->name }} <span class="fas fa-trash float-right"
                                             onclick="delLocation({{ $loc->kabupaten_code }})"></span></li>
                                     <hr />
+                                    @endif
                                     @endforeach
                                 </div>
                                 <div class="form-group row">
