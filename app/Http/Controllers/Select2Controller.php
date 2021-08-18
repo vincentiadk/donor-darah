@@ -131,7 +131,9 @@ class Select2Controller extends Controller
             ->get();
         $return = [];
         foreach($locs as $loc) {
-            $return[] = $loc->location;
+            if($loc->location) {
+                $return[] = $loc->location;
+            }
         }
         return $return;
     }
