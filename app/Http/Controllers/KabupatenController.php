@@ -18,6 +18,11 @@ class KabupatenController extends Controller
             'content' => 'kabupaten',
             'logs' => Helper::getLogs(session('id')),
         ];
+        if( request()->header('X-PJAX') ) {
+            return view('kabupaten', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
         return view('kabupaten', ['data' => $data]);
     }
 

@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="{{ asset('template/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-<div class="content-wrapper">
+<div id="myContent">
+    <link rel="stylesheet" href="{{ asset('template/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -7,7 +8,8 @@
                     <!-- Default box -->
                     <div class="card card-row card-primary card-tabs col-md-12 center">
                         <div class="card-body">
-                            <form action="/admin/profile/store" method="post" enctype="multipart/form-data" id="form_data">
+                            <form action="/admin/profile/store" method="post" enctype="multipart/form-data"
+                                id="form_data">
                                 {{ csrf_field() }}
                                 <div class="col-md-12 padding">
                                     <h3 class="text-center">BIODATA</h3>
@@ -54,7 +56,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Email</label>
                                         <input name="email" type="email" id="email" class="form-control col-md-9"
-                                            value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}" required>
+                                            value="{{ $data['donor']->user ? $data['donor']->user->email : '' }}"
+                                            required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Nomor Telepon</label>
@@ -70,7 +73,8 @@
                                     <h3 class="text-center">DOMISILI</h3>
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Provinsi</label>
-                                        <select name="provinsi_code" class="form-control select2bs4 col-md-9" id="provinsi_code">
+                                        <select name="provinsi_code" class="form-control select2bs4 col-md-9"
+                                            id="provinsi_code">
                                             <option value="">-- Pilih Provinsi--</option>
                                             @foreach(App\Models\Provinsi::all() as $provinsi)
                                             <option value="{{ $provinsi->code }}" @if($data['donor']->provinsi_code ==
@@ -80,7 +84,8 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Kab/Kota</label>
-                                        <select name="kabupaten_code" class="form-control select2bs4 col-md-9" id="kabupaten_code" >
+                                        <select name="kabupaten_code" class="form-control select2bs4 col-md-9"
+                                            id="kabupaten_code">
                                             @if($data['donor']->kabupaten)
                                             <option value="{{ $data['donor']->kabupaten->code }}" selected>
                                                 {{$data['donor']->kabupaten->name}}</option>
@@ -89,7 +94,8 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Kecamatan</label>
-                                        <select name="kecamatan_code" class="form-control select2bs4 col-md-9" id="kecamatan_code">
+                                        <select name="kecamatan_code" class="form-control select2bs4 col-md-9"
+                                            id="kecamatan_code">
                                             @if($data['donor']->kecamatan)
                                             <option value="{{ $data['donor']->kecamatan->code }}" selected>
                                                 {{$data['donor']->kecamatan->name}}</option>
@@ -98,7 +104,8 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 my-auto">Kelurahan</label>
-                                        <select name="kelurahan_code" class="form-control select2bs4 col-md-9" id="kelurahan_code">
+                                        <select name="kelurahan_code" class="form-control select2bs4 col-md-9"
+                                            id="kelurahan_code">
                                             @if($data['donor']->kelurahan)
                                             <option value="{{ $data['donor']->kelurahan->code }}" selected>
                                                 {{$data['donor']->kelurahan->name}}</option>
@@ -106,7 +113,8 @@
                                         </select>
                                     </div>
 
-                                    <button class="btn btn-danger mx-auto" url="{{ url('admin/profile/store') }}" onclick="simpan()" id="btn_simpan">Simpan</button>
+                                    <button class="btn btn-danger mx-auto" url="{{ url('admin/profile/store') }}"
+                                        onclick="simpan()" id="btn_simpan">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -114,9 +122,10 @@
                 </div>
             </div>
         </section>
+    </div>
+    <script>
+    select2AutoSuggest('#kabupaten_code', 'kabupaten', 'provinsi_code');
+    select2AutoSuggest('#kecamatan_code', 'kecamatan', 'kabupaten_code');
+    select2AutoSuggest('#kelurahan_code', 'kelurahan', 'kecamatan_code');
+    </script>
 </div>
-<script>
-select2AutoSuggest('#kabupaten_code', 'kabupaten', 'provinsi_code');
-select2AutoSuggest('#kecamatan_code', 'kecamatan', 'kabupaten_code');
-select2AutoSuggest('#kelurahan_code', 'kelurahan', 'kecamatan_code');
-</script>

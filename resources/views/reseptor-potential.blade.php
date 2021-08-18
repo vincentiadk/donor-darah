@@ -25,7 +25,7 @@
             <td>{{ $val->provinsi ? $val->provinsi->name : "" }}</td>
             <td>{{ $val->kabupaten ? $val->kabupaten->name : "" }}</td>
             <td>{{ $val->kecamatan ? $val->kecamatan->name : "" }}</td>
-            <td>@if($val->createdBy->donor ? $val->createdBy->donor->whatsapp != "") <a href='https://api.whatsapp.com/send?phone={{ $val->createBy->donor->whatsapp }}&text=Halo%2C%20saya%20membutuhkan%20donor%20darah%20{{ $val->jenis_donor() }}%20saat%20ini.%20Saya%20menemukan%20kontak%20Anda%20lewat%20https%3A%2F%2Fdarah.id.%0ABisakah%20Anda%20membantu%20saya%3F'>WA</a> @endif</td>
+            <td>@if($val->createdBy && $val->createdBy->donor && $val->createdBy->donor->whatsapp != "") <a href='https://api.whatsapp.com/send?phone={{ $val->createBy->donor->whatsapp }}&text=Halo%2C%20saya%20membutuhkan%20donor%20darah%20{{ $val->jenis_donor() }}%20saat%20ini.%20Saya%20menemukan%20kontak%20Anda%20lewat%20https%3A%2F%2Fdarah.id.%0ABisakah%20Anda%20membantu%20saya%3F'>WA</a> @endif</td>
         </tr>
         @endforeach
     </tbody>

@@ -16,7 +16,12 @@ class NeedBloodController extends Controller
             'content' => 'needblood',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('needblood', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('needblood', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
+
     }
 
     public function datatable(Request $request)
@@ -48,7 +53,7 @@ class NeedBloodController extends Controller
                     $val->detail->kabupaten ? $val->detail->kabupaten->name : "",
                     $val->detail->kecamatan ? $val->detail->kecamatan->name : "",
                     $val->detail->instansi,
-                    $val->createdBy->donor->whatsapp != "" ? '<a href="https://api.whatsapp.com/send?phone='.$val->createdBy->donor->whatsapp.'text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah%20untuk%20' . $val->detail->nama_ktp . '">WA</a>' : ''
+                    $val->createdBy && $val->createdBy->donor && ($val->createdBy->donor->whatsapp != "") ? '<a href="https://api.whatsapp.com/send?phone='.$val->createdBy->donor->whatsapp.'text=Halo%2C%20saya%20bisa%20membantu%20mendonorkan%20darah%20untuk%20' . $val->detail->nama_ktp . '">WA</a>' : ''
                 ];
                 $nomor++;
             }

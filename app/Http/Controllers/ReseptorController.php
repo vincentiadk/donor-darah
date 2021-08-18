@@ -26,7 +26,11 @@ class ReseptorController extends Controller
             'reseptors' => $reseptor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('reseptor', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('reseptor', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function view($id)
@@ -74,6 +78,11 @@ class ReseptorController extends Controller
             'content' => 'reseptor-add',
             'logs' => Helper::getLogs(session('id')),
         ];
+        if( request()->header('X-PJAX') ) {
+            return view('reseptor-add', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
         return view('reseptor-add', ['data' => $data]);
     }
     public function store()

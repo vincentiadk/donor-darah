@@ -23,7 +23,11 @@ class PreferenceController extends Controller
             'donor' => $user->donor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('preference', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('preference', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function store()

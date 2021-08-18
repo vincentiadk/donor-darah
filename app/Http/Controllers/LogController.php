@@ -15,6 +15,11 @@ class LogController extends Controller
             'content' => 'log',
             'logs'  => Helper::getLogs(session('id'))
         ];
+        if( request()->header('X-PJAX') ) {
+            return view('log', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
         return view('log', ['data' => $data]);
     }
 

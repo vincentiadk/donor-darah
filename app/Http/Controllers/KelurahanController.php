@@ -18,7 +18,11 @@ class KelurahanController extends Controller
             'content' => 'kelurahan',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('kelurahan', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('kelurahan', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function datatable(Request $request)

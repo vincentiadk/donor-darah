@@ -20,7 +20,11 @@ class DonorHistoryController extends Controller
             'content' => 'donorhistory',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('donorhistory', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('donorhistory', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function show()
@@ -32,11 +36,15 @@ class DonorHistoryController extends Controller
         }
         $data = [
             'title' => 'Tambah Riwayat Donor Darah',
-            'content' => 'donorhistory-add',
+            'content' => 'donorhistory-form',
             'logs' => Helper::getLogs(session('id')),
             'donorhistory'  => $donorhistory
         ];
-        return view('donorhistory-form', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('donorhistory-form', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function datatable(Request $request)

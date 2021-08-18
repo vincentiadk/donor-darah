@@ -6,25 +6,25 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link page" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/profile')">Dashboard</a>
+                    <a class="nav-link page" href="{{url('admin/profile')}}">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">Data Medis</a>
+                    <a class="nav-link page" href="{{url('admin/medical-history')}}">Data Medis</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/preference')">Kesediaan Donor</a>
+                    <a class="nav-link page" href="{{url('admin/preference')}}">Kesediaan Donor</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/reseptor')">Reseptor</a>
+                    <a class="nav-link page" href="{{url('admin/reseptor')}}">Reseptor</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/need-blood')">Membutuhkan Darah</a>
+                    <a class="nav-link page" href="{{url('admin/need-blood')}}">Membutuhkan Darah</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">Riwayat Donor</a>
+                    <a class="nav-link page" href="{{url('admin/donor-history')}}">Riwayat Donor</a>
                 </li>
             </ul>
 
@@ -44,7 +44,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         @endforeach
-                        <a href="#" class="dropdown-item dropdown-footer" onclick="goToPage('admin/log')">Lihat Semua
+                        <a class="dropdown-item dropdown-footer page" href="{{ url('admin/log') }}">Lihat Semua
                             Log</a>
                     </div>
                 </li>
@@ -71,8 +71,8 @@
                             Terakhir Login
                             <span class="float-right text-muted text-sm">{{ session('last_login') }}</span>
                         </a>
-                        <a href="#" class="btn btn-secondary" style="width:100%"
-                            onclick="goToPage('admin/user/setting')"><i class="fas fa-cog"> </i> Pengaturan
+                        <a class="btn btn-secondary page" style="width:100%"
+                            href="{{ url('admin/user/setting') }}"><i class="fas fa-cog"> </i> Pengaturan
                         </a>
                         <a href="/logout" class="btn btn-danger" style="width:100%"> <i class="fas fa-sign-out-alt">
                             </i>Logout</a>

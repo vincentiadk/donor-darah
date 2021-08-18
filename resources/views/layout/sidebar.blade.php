@@ -18,7 +18,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/profile')">
+                      <a class="nav-link page" href="{{ url('admin/profile') }}">
                           <i class="nav-icon far fa-address-card"></i>
                           <p>
                               Data Diri
@@ -26,7 +26,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/medical-history')">
+                      <a class="nav-link page" href="{{ url('admin/medical-history') }}">
                           <i class="nav-icon fas fa-notes-medical"></i>
                           <p>
                               Data Medis
@@ -34,7 +34,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/preference')">
+                      <a class="nav-link page" href="{{ url('admin/preference') }}">
                           <i class="nav-icon fas fa-hand-holding-medical"></i>
                           <p>
                               Kesediaan Donor
@@ -42,7 +42,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/reseptor')">
+                      <a class="nav-link page" href="{{ url('admin/reseptor') }}">
                           <i class="nav-icon fas fa-first-aid"></i>
                           <p>
                               Reseptor
@@ -50,7 +50,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/need-blood')">
+                      <a class="nav-link page" href="{{ url('admin/need-blood') }}">
                           <i class="nav-icon fas fa-hospital-user"></i>
                           <p>
                               Membutuhkan Darah
@@ -58,7 +58,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/donor-history')">
+                      <a class="nav-link page" href="{{ url('admin/donor-history') }}">
                           <i class="nav-icon fas fa-history"></i>
                           <p>
                               Riwayat Donor
@@ -68,7 +68,7 @@
                   <li class="nav-header">PENGATURAN</li>
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/user')">
+                      <a class="nav-link page" href="{{ url('admin/user') }}">
                           <i class="far fa-user nav-icon"></i>
                           <p>User Management</p>
                       </a>
@@ -76,14 +76,14 @@
                   @endif
                  
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/log')">
+                      <a class="nav-link page" href="{{ url('admin/log') }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Log Aktifitas</p>
                       </a>
                   </li>
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/provinsi')">
+                      <a class="nav-link page" href="{{ url('admin/provinsi') }}">
                           <i class="far fa-map nav-icon"></i>
                           <p>Provinsi</p>
                       </a>
@@ -91,7 +91,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/kabupaten')"> 
+                      <a class="nav-link page" href="{{ url('admin/kabupaten') }}"> 
                           <i class="far fa-map nav-icon"></i>
                           <p>Kabupaten / Kota</p>
                       </a>
@@ -99,7 +99,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/kecamatan')">
+                      <a href="{{ url('admin/kecamatan') }}" class="nav-link page">
                           <i class="far fa-map nav-icon"></i>
                           <p>Kecamatan</p>
                       </a>
@@ -107,7 +107,7 @@
                   @endif
                   @if(session('role_id') == 1)
                   <li class="nav-item">
-                      <a href="#" class="nav-link" onclick="goToPage('admin/kelurahan')">
+                      <a href="{{ url('admin/kelurahan') }}" class="nav-link page">
                           <i class="far fa-map nav-icon"></i>
                           <p>Kelurahan</p>
                       </a>

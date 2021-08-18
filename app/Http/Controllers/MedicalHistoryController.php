@@ -23,7 +23,11 @@ class MedicalHistoryController extends Controller
             'donor' => $user->donor,
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('medicalhistory', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('medicalhistory', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function store()

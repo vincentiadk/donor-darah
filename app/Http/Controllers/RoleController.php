@@ -18,7 +18,11 @@ class RoleController extends Controller
             'content' => 'role',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('layout.index', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('role', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
     public function datatable(Request $request)
     {
@@ -81,8 +85,11 @@ class RoleController extends Controller
             'logs' => Helper::getLogs(session('id')),
             'role'  => Role::findOrFail($id)
         ];
-
-        return view('layout.index', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('permission-form', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function store()

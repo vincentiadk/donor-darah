@@ -23,7 +23,11 @@ class UserController extends Controller
             'content' => 'user',
             'logs' => Helper::getLogs(session('id')),
         ];
-        return view('user', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('user', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function datatable(Request $request)
@@ -73,7 +77,7 @@ class UserController extends Controller
                     $val->email,
                     $val->role->name,
                     $aksi .
-                    '<a href="#" onclick="goToPage(\'admin\/user\/show\/'. $val->id .'\')" class="btn btn-success">Ubah</a>',
+                    '<a href="'.url('admin/user/show/'.$val->id).'"  class="btn btn-success page">Ubah</a>',
                 ];
                 $nomor++;
             }
@@ -109,8 +113,11 @@ class UserController extends Controller
             $data['type'] = 'create';
         }
         $data['user'] = $user;
-
-        return view('user-form', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('user-form', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function setting()
@@ -124,7 +131,11 @@ class UserController extends Controller
             'user' => $user,
             'type' => 'setting',
         ];
-        return view('user-form', ['data' => $data]);
+        if( request()->header('X-PJAX') ) {
+            return view('user-form', ['data' => $data]);
+        } else {
+            return view('layout.index', ['data' => $data]);
+        }
     }
 
     public function store()

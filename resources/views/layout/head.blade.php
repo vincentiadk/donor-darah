@@ -48,6 +48,7 @@
     <script src="{{ asset('template/plugins/waitMe/waitMe.min.js') }}"></script>
     <script src="{{ asset('template/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('template/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-pjax.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <!--<script src="{{ asset('template/dist/js/demo.js') }}"></script>-->
 </head>
@@ -72,7 +73,17 @@
 }
 </style>
 <script>
-function goToPage(page) {
+$('a').on('click', function() {
+    event.prefentDefault();
+});
+$(document).pjax('.page', '#myContent');
+$(document).on('pjax:start', function() { //do what you want to do before start 
+        loadingOpen('.content');
+    })
+    .on('pjax:end', function() { //after the request ends 
+        loadingClose('.content');
+    });
+/*function goToPage(page) {
     event.preventDefault();
     $.ajax({
         url: "{{ url('auth/check-login') }}",
@@ -91,7 +102,7 @@ function goToPage(page) {
         }
     })
 }
-
+*/
 function simpan() {
     event.preventDefault();
     var url = $("#btn_simpan").attr('url');
